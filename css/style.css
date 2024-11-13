@@ -73,12 +73,12 @@ figure {
   position: relative; }
 
 #colorlib-aside {
-  padding-top: 3em;
+  padding-top: .5em;
   padding-bottom: 40px;
   float: left;
   width: 300px;
   position: fixed;
-  overflow-y: scroll;
+  overflow-y: auto;
   z-index: 1001;
   background: #f2f3f7;
   -webkit-transition: 0.5s;
@@ -217,7 +217,9 @@ figure {
 
 .container-wrap {
   max-width: 1170px;
-  margin: 0 auto; }
+  margin: 0 auto; 
+  float:left;
+}
 
 #colorlib-main {
   width: calc(100% - 300px);
@@ -934,7 +936,6 @@ body.offcanvas {
   background-position: center center;
   background-repeat: no-repeat;
   position: relative;
-  height: 300px;
   width: 100%;
   display: block;
   margin-bottom: 30px; }
