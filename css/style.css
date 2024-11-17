@@ -223,7 +223,7 @@ figure {
 
 #colorlib-main {
   width: calc(100% - 300px);
-  float: right;
+  margin-left:350px;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -1494,3 +1494,24 @@ body.offcanvas {
   opacity:.5;
 }
 
+section{
+  margin-right: 0px !important;
+}
+
+.flex-active-slide{
+  width:95% !important;
+}
+
+@media only screen and (max-width: 600px) {
+  section{
+     margin-right: -50px !important;
+  }   
+  #colorlib-main {
+     margin-left:0px;
+  }
+
+  .flex-active-slide{
+      width:99% !important;
+  }  
+
+}
