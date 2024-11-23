@@ -222,8 +222,8 @@ figure {
 }
 
 #colorlib-main {
-  width: calc(100% - 300px);
-  margin-left:350px;
+  width: calc(100% - 200px);
+  margin-left:300px !important;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -1038,7 +1038,12 @@ body.offcanvas {
   padding: 3em 0;
   background-size: cover;
   background-attachment: fixed;
-  background-position: center center; }
+  background-position: center center; 
+  background-size: contain; 
+  background-repeat: no-repeat; 
+  background-position: center;
+  background-size:100% 100%;
+}
   .colorlib-counters .overlay {
     z-index: 0;
     position: absolute;
@@ -1502,7 +1507,7 @@ section{
   width:95% !important;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
   }   
@@ -1514,4 +1519,25 @@ section{
       width:99% !important;
   }  
 
+  .colorlib-about .colorlib-education .colorlib-internship .colorlib-services .colorlib-skills .colorlib-work .colorlib-education .colorlib-blog .colorlib-contact{
+    padding-right:0px;
+  } 
+  
+  #colorlib-main{
+    margin-left:0px !important;
+  } 
+
+  #colorlib-counter {
+    padding-right:0px;  
+  }
+}
+
+.colorlib-about .colorlib-education .colorlib-internship .colorlib-services .colorlib-skills .colorlib-work .colorlib-education .colorlib-blog .colorlib-contact{
+  padding-right:100px;
+}
+
+
+
+.container-wrap{
+  padding-left:25px;
 }
