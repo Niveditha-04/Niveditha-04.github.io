@@ -278,7 +278,7 @@ figure {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.4); /* Optional: Adds a dark overlay for better text readability */
+  background: rgba(0, 0, 0, 0); /* Optional: Adds a dark overlay for better text readability */
   z-index: 1; /* Place the overlay above the blurred background but below the text */
 }
     #colorlib-hero .flexslider .flex-control-nav {
