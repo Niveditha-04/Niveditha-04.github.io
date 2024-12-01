@@ -247,27 +247,40 @@ figure {
     #colorlib-hero .flexslider .slides {
       position: relative;
       overflow: visible; }
-      #colorlib-hero .flexslider .slides li {
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: bottom center;
-        min-height: 400px;
-        position: relative; 
-        filter: blur(5px);
-      }
-      #colorlib-hero .flexslider .slides li .slider-text-inner {
-        position: relative;
-        z-index: 2;
-      }
-      #colorlib-hero .flexslider .slides li .overlay {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: rgba(0, 0, 0, 0.4);
-        z-index: 1;
-      }
+#colorlib-hero .flexslider .slides li {
+  position: relative;
+  min-height: 400px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+}
+
+#colorlib-hero .flexslider .slides li:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit; /* Use the same background as the parent */
+  filter: blur(3px); /* Mild blur applied */
+  z-index: 1; /* Place the blur behind the text */
+}
+
+#colorlib-hero .flexslider .slides li .slider-text-inner {
+  position: relative;
+  z-index: 2; /* Ensure the text is above the blurred background */
+}
+
+#colorlib-hero .flexslider .slides li .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.4); /* Optional: Adds a dark overlay for better text readability */
+  z-index: 1; /* Place the overlay above the blurred background but below the text */
+}
     #colorlib-hero .flexslider .flex-control-nav {
       bottom: 20px;
       z-index: 1000;
