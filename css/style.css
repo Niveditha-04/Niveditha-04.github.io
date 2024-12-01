@@ -81,6 +81,7 @@ figure {
   overflow-y: auto;
   z-index: 1001;
   background: #f2f3f7;
+  padding-right: 20px; /* Added space */
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
