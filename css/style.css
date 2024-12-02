@@ -1545,6 +1545,10 @@ section{
   margin-top:6px;
 }
 
+.colorlib-blog .colorlib-narrow-content{
+  padding-right:40px !important;
+}
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
@@ -1566,9 +1570,6 @@ section{
     margin-left:0px !important;
   } 
 
-  .colorlib-blog .colorlib-narrow-content{
-    padding-right:40px !important;
-  }
 
   #colorlib-counter {
     padding-right:0px;  
@@ -1593,6 +1594,10 @@ section{
   .colorlib-work2 .colorlib-narrow-content{
     padding-right:50px !important;
   }  
+
+  .colorlib-blog .colorlib-narrow-content{
+    padding-right:0px !important;
+  }
 }
 
 
