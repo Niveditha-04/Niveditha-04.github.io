@@ -225,6 +225,7 @@ figure {
 #colorlib-main {
   width: calc(100% - 200px);
   margin-left:300px !important;
+  padding-right:70px !important;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
   transition: 0.5s; }
@@ -1536,6 +1537,14 @@ section{
   width:95% !important;
 }
 
+.colorlib-narrow-content .col-md-3{
+  width:23.75%;
+}
+
+.colorlib-skills .progress{
+  margin-top:6px;
+}
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
@@ -1550,6 +1559,7 @@ section{
 
   .colorlib-about .colorlib-education .colorlib-internship .colorlib-services .colorlib-skills .colorlib-work .colorlib-education .colorlib-blog .colorlib-contact{
     padding-right:0px;
+    width:auto !important;
   } 
   
   #colorlib-main{
@@ -1559,11 +1569,28 @@ section{
   #colorlib-counter {
     padding-right:0px;  
   }
+
+  .colorlib-narrow-content .col-md-3{
+    width:100% !important;
+  }
+
+  .colorlib-skills .progress{
+    margin-top:20px !important;
+  }
+
+  #colorlib-main{
+    padding-right:10px !important;
+  }
+
+  .colorlib-work1 .colorlib-narrow-content{
+    padding-right:50px !important;
+  }
+
+  .colorlib-work2 .colorlib-narrow-content{
+    padding-right:50px !important;
+  }  
 }
 
-.colorlib-about .colorlib-education .colorlib-internship .colorlib-services .colorlib-skills .colorlib-work .colorlib-education .colorlib-blog .colorlib-contact{
-  padding-right:100px;
-}
 
 .container-wrap{
   padding-left:0px;
