@@ -1566,6 +1566,10 @@ section{
     margin-left:0px !important;
   } 
 
+  .colorlib-blog .colorlib-narrow-content{
+    padding-right:40px !important;
+  }
+
   #colorlib-counter {
     padding-right:0px;  
   }
