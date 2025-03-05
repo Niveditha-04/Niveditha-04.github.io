@@ -98,7 +98,7 @@
 				<div class="flexslider js-fullheight">
 					<div class = 'videoholder'>
 						<div class="video-container">
-							<video id="video" src="https://eagleseyeerp.com/WEBSITE DIGITAL PORTFOLIO.mp4"></video>
+							<video id="video" src="vportfolio/WEBSITE DIGITAL PORTFOLIO.mp4" preload="auto"></video>
 							<div class="controls">
 								<i class="fas fa-play" id = "play" title = "play" onclick="playVideo()"></i>
 								<i class="fas fa-pause" id = "pause" title = "pause" style="opacity:.4" onclick="pauseVideo()"></i>
@@ -1764,12 +1764,20 @@
 	<script src="js/main.js"></script>
 
 	<script>
-let playstarted = false;
-const video = document.getElementById('video');
+        let playstarted = false;
+        const video = document.getElementById('video');
         const progressBar = document.getElementById('progress-bar');
         const currentTimeDisplay = document.getElementById('currentTime');
         const totalTimeDisplay = document.getElementById('totalTime');
         const volumeSlider = document.getElementById('volume');
+
+		video.addEventListener('loadeddata', function() {
+           video.currentTime = .5; // Go to the first frame
+        });
+
+		video.addEventListener('canplaythrough', function() {
+           video.pause();
+        });
 
         function playVideo() {
 			if (playstarted){
