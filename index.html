@@ -26,6 +26,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Playfair+Display:400,400i,700" rel="stylesheet">
 	
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js" crossorigin="anonymous"></script>
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
 	<!-- Icomoon Icon Fonts-->
@@ -92,17 +93,48 @@
 		</aside>
 
 		<div id="colorlib-main">
-			<section id="colorlib-hero" class="js-fullheight" data-section="home">
+
+			<section id="colorlib-hero" class="js-fullheight" data-section="home">				
 				<div class="flexslider js-fullheight">
+					<div class = 'videoholder'>
+						<div class="video-container">
+							<video id="video" src="vportfolio/WEBSITE DIGITAL PORTFOLIO.mp4"></video>
+							<div class="controls">
+								<i class="fas fa-play" id = "play" title = "play" onclick="playVideo()"></i>
+								<i class="fas fa-pause" id = "pause" title = "pause" style="opacity:.4" onclick="pauseVideo()"></i>
+								<i class="fas fa-fast-backward" tutle = "backward" onclick="rewindVideo()"></i>
+								<i class="fas fa-fast-forward" title = "forward" onclick="fastForwardVideo()"></i>
+								<i class="fas fa-stop" id = "stop" title = "stop" style="opacity:.4" onclick="stopVideo()"></i>
+								<i class="fa-solid fa-expand" title = "full screen" onclick="toggleFullscreen()"></i>
+								<select id="speed" title = "Adjust speed" onchange="changeSpeed()">
+									<option value="0.5">0.5x</option>
+									<option value="1" selected>1x</option>
+									<option value="1.5">1.5x</option>
+									<option value="2">2x</option>
+								</select>
+								<div class="volume-control" title = "Volume Control">
+									<i class="fa-solid fa-volume-up" onclick="toggleMute()"></i>
+									<input type="range" style = "padding-left:20px" id="volume" class="volume-slider" min="0" max="1" step="0.1" onchange="changeVolume()">
+								</div>								
+							</div>
+							<div class="timeline" onclick="seek(event)">
+								<div class="progress" style = "background:black !important" id="progress"></div>
+							</div>	
+							<div class="timeline-container" title = "Start From">
+								<span id="currentTime">0:00</span>
+								<input type="range" id="progress-bar" class="progress-bar" min="0" max="100" step="0.1" onchange="seekVideo()">
+								<span id="totalTime">0:00</span>
+							</div>													
+						</div>
+					</div>					
 					<ul class="slides">
-				   	<li style="background-image: url(images/HOMEIMAGE.png);">
+				   	<li>
 				   		<div class="overlay"></div>
 				   		<div class="container-fluid">
 				   			<div class="row">
 					   			<div class="col-md-6 col-md-offset-3 col-md-pull-3 col-sm-12 col-xs-12 js-fullheight slider-text">
 					   				<div class="slider-text-inner js-fullheight">
-					   					<div class="desc" style = "margin-top:100px;">
-						   					<h1>Hi! <br>I'm Niveditha S</h1>
+					   					<div class="desc" style = "margin-top:20px;">
 											 <a  href="./resume/MYRESUME.pdf" target="_blank"><button  id="cvdownload">Resume <i id = "downloadcvbutton"  class="icon-download4"></i></button></a>
 										</div>
 					   				</div>
@@ -1732,6 +1764,98 @@
 	<script src="js/main.js"></script>
 
 	<script>
+let playstarted = false;
+const video = document.getElementById('video');
+        const progressBar = document.getElementById('progress-bar');
+        const currentTimeDisplay = document.getElementById('currentTime');
+        const totalTimeDisplay = document.getElementById('totalTime');
+        const volumeSlider = document.getElementById('volume');
+
+        function playVideo() {
+			if (playstarted){
+				return
+			}
+			playstarted = true;
+			document.getElementById('pause').style.opacity = '1'
+			document.getElementById('stop').style.opacity = '1'
+			document.getElementById('play').style.opacity = '.4'
+            video.play();
+        }
+
+        function pauseVideo() {
+			if (!playstarted){
+				return
+			}
+			document.getElementById('pause').style.opacity = '.4'
+			document.getElementById('stop').style.opacity = '1'
+			document.getElementById('play').style.opacity = '1'			
+			playstarted = false;
+            video.pause();
+        }
+
+        function rewindVideo() {
+            video.currentTime -= 5;
+        }
+
+        function fastForwardVideo() {
+            video.currentTime += 5;
+        }
+
+        function stopVideo() {
+			if (!playstarted){
+				return
+			}		
+			document.getElementById('pause').style.opacity = '.4'
+			document.getElementById('stop').style.opacity = '.4'
+			document.getElementById('play').style.opacity = '1'				
+			playstarted = false;
+            video.pause();
+            video.currentTime = 0;
+        }
+
+        function changeSpeed() {
+            const speed = document.getElementById('speed').value;
+            video.playbackRate = speed;
+        }
+
+        function changeVolume() {
+            video.volume = volumeSlider.value;
+        }
+
+        function toggleMute() {
+            video.muted = !video.muted;
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                video.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function updateProgress() {
+            const percent = (video.currentTime / video.duration) * 100;
+            progressBar.value = percent;
+            currentTimeDisplay.textContent = formatTime(video.currentTime);
+            totalTimeDisplay.textContent = formatTime(video.duration);
+        }
+
+        function seekVideo() {
+            const seekTime = (progressBar.value / 100) * video.duration;
+            video.currentTime = seekTime;
+        }
+
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const secs = Math.floor(seconds % 60);
+            return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+
+        video.addEventListener('timeupdate', updateProgress);
+        video.addEventListener('loadedmetadata', updateProgress);
+
+
 		start = 6;
 		function loadmore(id,number,count){
 			let ix = start;
