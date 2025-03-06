@@ -1651,8 +1651,15 @@ section{
 
 .vhigh{
   margin-left:5px;
+  cursor:default
 }
 
 .vhigh a{
+  font-size:13px;
+  font-style: italic
 } 
+
+.vhigh:hover{
+  cursor:pointer;
+}  
 
