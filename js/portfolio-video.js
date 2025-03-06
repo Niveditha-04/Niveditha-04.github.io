@@ -2,23 +2,23 @@ document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("portfolioVideo");
     var playButton = document.getElementById("playButton");
 
-    // Define playVideo function
+    // Make playVideo globally accessible
     window.playVideo = function () {
         if (video.paused) {
             video.play();
-            playButton.style.display = "none"; // Hide button when playing
+            playButton.style.display = "none";
         } else {
             video.pause();
-            playButton.style.display = "block"; // Show button when paused
+            playButton.style.display = "block";
         }
     };
 
-    // Define jumpTo function for timeline buttons
+    // Make jumpTo globally accessible
     window.jumpTo = function (time) {
         if (video) {
             video.currentTime = time;
             video.play();
-            playButton.style.display = "none"; // Hide play button on jump
+            playButton.style.display = "none";
         }
     };
 
@@ -26,4 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (playButton) {
         playButton.addEventListener("click", playVideo);
     }
+
+    console.log("Portfolio Video JS Loaded Successfully");
 });
+
