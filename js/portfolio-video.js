@@ -9,7 +9,6 @@ function playVideo() {
     }
 
 document.addEventListener("DOMContentLoaded", function () {
-    var video = document.getElementById("portfolio-video");
     var video = document.getElementById("portfolioVideo");
     var playButton = document.getElementById("playButton");
 
