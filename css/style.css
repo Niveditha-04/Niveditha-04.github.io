@@ -1573,18 +1573,20 @@ section{
 }
 
 #playButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
-  padding: 15px 20px;
-  border-radius: 50%;
-  z-index: 10;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    padding: 15px 20px;
+    border-radius: 50%;
+    z-index: 10;
+    width: 58px;
+    height: 55px;
 }
 
 #playButton:hover {
