@@ -1559,7 +1559,7 @@ section{
 
 .video-wrapper {
   position: relative;
-  width: 70%;  /* Adjust width based on preference */
+  width: 75%;  /* Adjust width based on preference */
   max-width: 800px;
   margin-top:-20px;
   margin-left:10px;
