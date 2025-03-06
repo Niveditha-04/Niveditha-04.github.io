@@ -1553,7 +1553,6 @@ section{
    Video Section Fixes - Added for Portfolio Video
    ============================================== */
 #portfolio-video {
-  text-align: center;
   max-width: 100%;
   margin-bottom: 20px;
 }
