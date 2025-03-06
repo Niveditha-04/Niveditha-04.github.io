@@ -1,9 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-    var video = document.getElementById("portfolio-video");
-    var video = document.getElementById("portfolioVideo");
-    var playButton = document.getElementById("playButton");
-
-    function playVideo() {
+function playVideo() {
         if (video.paused) {
             video.play();
             playButton.style.display = "none"; // Hide play button when playing
@@ -12,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
             playButton.style.display = "block"; // Show play button when paused
         }
     }
+
+document.addEventListener("DOMContentLoaded", function () {
+    var video = document.getElementById("portfolio-video");
+    var video = document.getElementById("portfolioVideo");
+    var playButton = document.getElementById("playButton");
+
 
     if (video && playButton) {
         playButton.addEventListener("click", function () {
