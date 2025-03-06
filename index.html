@@ -522,10 +522,10 @@
 
     <!-- Video Container -->
     <div class="video-wrapper">
-        <video id="portfolioVideo" poster="images/thumbnail.png">
-            <source src="video_compressed.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+        <video id="portfolioVideo" poster="images/thumbnail.png" width="800" controls>
+		<source src="video%20compressed.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+	</video>
 
         <!-- Translucent Play Button -->
         <button id="playButton" onclick="playVideo()">▶</button>
@@ -1984,7 +1984,7 @@
 
 
 
-	<script src="js/portfolio-video.js"></script>
+	<script src="js/portfolio-video.js" defer></script>
 
 
 	
