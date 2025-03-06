@@ -1549,6 +1549,48 @@ section{
   padding-right:40px !important;
 }
 
+/* ==============================================
+   Video Section Fixes - Added for Portfolio Video
+   ============================================== */
+#portfolio-video {
+  text-align: center;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+.video-wrapper {
+  position: relative;
+  width: 70%;  /* Adjust width based on preference */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#portfolioVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px; /* Optional: Adds rounded corners */
+}
+
+#playButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 15px 20px;
+  border-radius: 50%;
+  z-index: 10;
+}
+
+#playButton:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
