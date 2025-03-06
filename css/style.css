@@ -1561,7 +1561,6 @@ section{
   position: relative;
   width: 70%;  /* Adjust width based on preference */
   max-width: 800px;
-  margin: 0 auto;
   margin-top:-20px;
 }
 
