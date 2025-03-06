@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var playButton = document.getElementById("playButton");
 
     video.addEventListener("click",function() {
-            playVideo()
+            playVideo() 
     })
 
     if (video && playButton) {
