@@ -1562,6 +1562,7 @@ section{
   width: 70%;  /* Adjust width based on preference */
   max-width: 800px;
   margin-top:-20px;
+  margin-left:10px;
 }
 
 #portfolioVideo {
