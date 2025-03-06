@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function () {
     var video = document.getElementById("portfolioVideo");
     var playButton = document.getElementById("playButton");
 
+    video.addEventListener("click",function() {
+            playVideo()
+    })
 
     if (video && playButton) {
         playButton.addEventListener("click", function () {
