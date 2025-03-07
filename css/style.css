@@ -1556,7 +1556,7 @@ section{
 
 .video-wrapper {
   position: relative;
-  width: 71%;  /* Adjust width based on preference */
+  width: 71%; !important  /* Adjust width based on preference */
   max-width: 800px;
   margin-top:-20px;
   margin-left:10px;
@@ -1648,6 +1648,10 @@ section{
   .videoholder{
     flex-wrap: wrap !important;
   }   
+
+  .video-wrapper{
+     width:100% !important;
+  } 
 }
 
 
