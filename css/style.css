@@ -1600,7 +1600,7 @@ section{
     margin-top: 0px !important;
 } 
 
-.vhighholder{
+#vhighholder{
     display: unset;
     grid-template-columns: unset;
     line-height: 15px;
@@ -1672,7 +1672,7 @@ section{
       margin-top: 10px !important;
    }   
 
-  .vhighholder{
+  #vhighholder{
       display: grid;
       grid-template-columns: .44fr .44fr;
       line-height: 15px;
