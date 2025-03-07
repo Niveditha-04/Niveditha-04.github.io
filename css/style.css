@@ -1559,7 +1559,7 @@ section{
   width: 71%; !important  /* Adjust width based on preference */
   max-width: 800px;
   margin-top:-20px;
-  margin-left:10px;
+  margin-left:10px !important;
 }
 
 #portfolioVideo {
@@ -1651,6 +1651,7 @@ section{
 
   .video-wrapper{
      width:100% !important;
+    argin-left: 5px !important;
   } 
 }
 
