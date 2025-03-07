@@ -1590,6 +1590,11 @@ section{
   background-color: rgba(0, 0, 0, 0.8);
 }
 
+#videoholder{
+  display:flex;
+  flex-wrap: nowrap !important;
+}    
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
@@ -1639,6 +1644,10 @@ section{
   .colorlib-blog .colorlib-narrow-content{
     padding-right:0px !important;
   }
+
+  #videoholder{
+    flex-wrap: wrap !important;
+  }   
 }
 
 
