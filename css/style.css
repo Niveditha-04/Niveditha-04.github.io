@@ -1595,6 +1595,11 @@ section{
   flex-wrap: nowrap !important;
 }    
 
+#hghlights{
+      width: unset !important;
+    margin-top: 0px !important;
+} 
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
@@ -1653,6 +1658,11 @@ section{
      width:100% !important;
      margin-left: 0px !important;
   } 
+
+#hghlights{
+      width: 100vw !important; 
+    margin-top: 10px !important;
+}   
 }
 
 
