@@ -1590,7 +1590,7 @@ section{
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-#videoholder{
+.videoholder{
   display:flex;
   flex-wrap: nowrap !important;
 }    
@@ -1645,7 +1645,7 @@ section{
     padding-right:0px !important;
   }
 
-  #videoholder{
+  .videoholder{
     flex-wrap: wrap !important;
   }   
 }
