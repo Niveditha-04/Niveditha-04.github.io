@@ -1603,7 +1603,7 @@ section{
 #vhighholder{
     display: unset;
     grid-template-columns: unset;
-    line-height: 15px;
+    line-height: unset;
     gap: unset;
     text-align: unset;
 } 
