@@ -1600,6 +1600,14 @@ section{
     margin-top: 0px !important;
 } 
 
+.vhighholder{
+    display: unset;
+    grid-template-columns: unset;
+    line-height: 15px;
+    gap: unset;
+    text-align: unset;
+} 
+
 @media only screen and (max-width: 768px) {
   section{
      margin-right: -50px !important;
@@ -1662,6 +1670,14 @@ section{
    #highlights{
       width: 100vw !important; 
       margin-top: 10px !important;
+   }   
+
+  .vhighholder{
+      display: grid;
+      grid-template-columns: .44fr .44fr;
+      line-height: 15px;
+      gap: 5px;
+      text-align: center;
    }   
 }
 
