@@ -519,7 +519,7 @@
 			</div>
 
 
-			<section class="colorlib-skills" data-section="digitalportfolio" style = "margin-top:40px;">
+			<section class="colorlib-skills" data-section="digitalportfolio">
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -650,7 +650,7 @@
 
 
 			<section class="colorlib-work1" data-section="publications">
-				<div class="colorlib-narrow-content">
+				<div class="colorlib-narrow-content" style = "padding-bottom:100px;">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 							<span class="heading-meta">My Publications</span>
@@ -660,13 +660,13 @@
 					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
 						<div class="col-md-12">
 							<p class="work-menu1">
-								<span><a href="#" onclick="showSection(event,'researchpaper',11)" class="active">Research Papers</a> |</span> 
-								<span style = "margin-left:5px;"><a href="#" onclick="showSection(event,'copyrights',1)">Copyrights</a> |</span>
-								<span style = "margin-left:5px;"><a onclick="showSection(event,'patents',1)" href="#">Patent</a> |</span> 
-								<span style = "margin-left:5px;"><a onclick="showSection(event,'bookchapters',4)" href="#">Book Chapters</a> |</span></p>
+								<span><a  href="#researchpaper" onclick="showSection(event,'researchpaper',11,'publications')" class="active">Research Papers</a> |</span> 
+								<span style = "margin-left:5px;"><a  href="#copyrights" onclick="showSection(event,'copyrights',1,'publications')">Copyrights</a> |</span>
+								<span style = "margin-left:5px;"><a  href = "#patents" onclick="showSection(event,'patents',1,'publications')" href="#">Patent</a> |</span> 
+								<span style = "margin-left:5px;"><a  href = "#bookchapters" onclick="showSection(event,'bookchapters',4,'publications')" href="#">Book Chapters</a> |</span></p>
 						</div>
 					</div>
-					<div class="row" id = "researchpaper" rel = "tab">
+					<div class="row" id = "researchpaper" idn = "publications" rel = "tab">
 						<div number = "1" class="col-md-12 animate-box"  data-animate-effect="fadeInRight" style = "float:left;display:block;">
 							<div class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div>
@@ -934,12 +934,12 @@
 
 						
 					</div>
-					<div class="row"  rel = "more">
+					<div class="row" idn = "publications" rel = "more">
 						<div id = "morebutton_researchpaper" class="col-md-12 animate-box">
 							<p><a onclick = "loadmore('researchpaper',5,11);" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
 					</div>
-					<div class="row" id = "copyrights" style = "display:none" rel = "tab">
+					<div class="row" idn = "publications" id = "copyrights" style = "display:none" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box"  data-animate-effect="fadeInRight" style = "float:left;display:block;">
 							<div class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div>
@@ -981,13 +981,13 @@
 						</div>						
 												
 					</div>	
-					<div class="row" rel = "more">
+					<div class="row" rel = "more" idn = "publications">
 						<div id = "morebutton_copyrights" style = "display:none;"" class="col-md-12 animate-box">
 							<p><a onclick = "loadmore('copyrights',5,2);" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
 					</div>		
 					
-					<div class="row" id = "patents" style = "display:none" rel = "tab">
+					<div class="row" idn = "publications" id = "patents" style = "display:none" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box"  data-animate-effect="fadeInRight" style = "float:left;display:block;">
 							<div class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div>
@@ -1008,13 +1008,13 @@
 							</div>						
 						</div>												
 					</div>	
-					<div class="row" rel = "more">
+					<div class="row" rel = "more" idn = "publications">
 						<div id = "morebutton_patents" style = "display:none;"" class="col-md-12 animate-box">
 							<p><a onclick = "loadmore('patents',5,1);" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
 					</div>							
 					
-					<div class="row" id = "bookchapters" style = "display:none" rel = "tab">
+					<div class="row" idn = "publications" id = "bookchapters" style = "display:none" rel = "tab">
 						<div  number = "2" class="col-md-12 animate-box"  data-animate-effect="fadeInRight" style = "float:left;display:block;">
 							<div class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div>
@@ -1098,7 +1098,7 @@
 						 </div>							
 												
 					</div>	
-					<div class="row" rel = "more">
+					<div class="row" rel = "more" idn = "publications">
 						<div id = "morebutton_bookchapters" style = "display:none;"" class="col-md-12 animate-box">
 							<p><a onclick = "loadmore('bookchapters',5,4);" class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
@@ -1108,8 +1108,8 @@
 
 
 
-			<section class="colorlib-work2" data-section="achievements" style = "margin-top:150px !important;">
-				<div class="colorlib-narrow-content">
+			<section class="colorlib-work2" data-section="achievements">
+				<div class="colorlib-narrow-content" style = "padding-bottom:150px;">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
 							<span class="heading-meta">My Achievements</span>
@@ -1121,17 +1121,17 @@
 					<div class="row row-bottom-padded-sm animate-box" data-animate-effect="fadeInLeft">
 						<div class="col-md-12">
 							<p class="work-menu2">
-								<span><a href="#" onclick="showSection(event,'awards',2)" class="active">Awards</a> |</span>
-								<span style = "margin-left:5px;"><a href="#" onclick="showSection(event,'certifications',1)">Certifications</a> |</span>
-								<span style = "margin-left:5px;"><a href="#" onclick="showSection(event,'socialvolunteeringexperience',1)">Social Volunteering Experience</a> |</span>
-								<span style = "margin-left:5px;"><a href="#" onclick="showSection(event,'competitionsandhackathons',1)">Competitions and Hackathons</a> |</span>
-								<span style = "margin-left:5px;"><a href="#" onclick="showSection(event,'panelmembershipandroles',1)">Panel Membership & Roles</a> |</span>
+								<span><a  href="#" onclick="showSection(event,'awards',2,'achievements')" class="active">Awards</a> |</span>
+								<span style = "margin-left:5px;"><a  href="#certifications" onclick="showSection(event,'certifications',1,'achievements')">Certifications</a> |</span>
+								<span style = "margin-left:5px;"><a  href="#socialvolunteeringexperience" onclick="showSection(event,'socialvolunteeringexperience',1,'achievements')">Social Volunteering Experience</a> |</span>
+								<span style = "margin-left:5px;"><a  href="#competitionsandhackathons" onclick="showSection(event,'competitionsandhackathons',1,'achievements')">Competitions and Hackathons</a> |</span>
+								<span style = "margin-left:5px;"><a  href="#panelmembershipandroles" onclick="showSection(event,'panelmembershipandroles',1,'achievements')">Panel Membership & Roles</a> |</span>
 							</p>
 						</div>
 					</div>
 		
 					<!-- Awards Section -->
-					<div id="awards" class="row" style="display:block;" rel = "tab">
+					<div id="awards" idn = "achievements" class="row" style="display:block;" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box" data-animate-effect="fadeInLeft" style = "float:left;display:block;">
 							<div id = "project1" class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div>
@@ -1248,7 +1248,7 @@
 					</div>
 			
 					<!-- More Button for Awards (hidden by default) -->
-					<div class="row" rel="more">
+					<div class="row" idn = "achievements" rel="more">
 						<div id="morebutton_awards" style="display:none;" class="col-md-12 animate-box">
 							<p><a onclick = "loadmore('awards',5,2);"  class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
@@ -1256,7 +1256,7 @@
 			
 
 
-					<div id="certifications" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
+					<div id="certifications" idn = "achievements"  class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box" data-animate-effect="fadeInLeft" style = "float:left;display:block;">
 							<div id = "project1" class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div style = "margin-left:20px;">
@@ -1319,13 +1319,13 @@
                        </div>
 				 	
 
-					  <div class="row" rel="more">
+					  <div class="row" idn = "achievements" rel="more">
                          <div id="morebutton_certifications" style="display:none;" class="col-md-12 animate-box">
 							<p><a  onclick = "loadmore('certifications',5,1);"  class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						 </div>
 					  </div>
 
-					  <div id="socialvolunteeringexperience" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
+					  <div idn = "achievements" id="socialvolunteeringexperience" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box" data-animate-effect="fadeInLeft" style = "float:left;display:block;">
 							<div id = "project1" class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div style = "margin-left:20px;">
@@ -1354,13 +1354,13 @@
                         </div>
 				    </div>		
 					
-					<div class="row" rel="more">
+					<div class="row" idn = "achievements" rel="more">
 						<div id="morebutton_socialvolunteeringexperience" style="display:none;" class="col-md-12 animate-box">
 							<p><a  onclick = "loadmore('socialvolunteeringexperience',5,1);"  class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
 					</div>
 					
-					<div id="competitionsandhackathons" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
+					<div idn = "achievements" id="competitionsandhackathons" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box" data-animate-effect="fadeInLeft" style = "float:left;display:block;">
 							<div id = "project1" class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div style = "margin-left:20px;">
@@ -1405,13 +1405,13 @@
                         </div>
 				    </div>		
 					
-					<div class="row" rel="more">
+					<div idn = "achievements" class="row" rel="more">
 						<div id="morebutton_competitionsandhackathons" style="display:none;" class="col-md-12 animate-box">
 							<p><a  onclick = "loadmore('competitionsandhackathons',5,1);"  class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
 					</div>
 
-					<div id="panelmembershipandroles" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
+					<div idn = "achievements" id="panelmembershipandroles" class="row" style="display:none;font-weight:bold;font-size:14px;" rel = "tab">
 						<div  number = "1" class="col-md-12 animate-box" data-animate-effect="fadeInLeft" style = "float:left;display:block;">
 							<div id = "project1" class="project" style="padding:10px;box-shadow: 0 0 10px #ccc;float:left;">
 								<div style = "margin-left:20px;">
@@ -1440,7 +1440,7 @@
                         </div>
 				    </div>		
 					
-					<div class="row" rel="more">
+					<div idn = "achievements" class="row" rel="more">
 						<div id="morebutton_panelmembershipandroles" style="display:none;" class="col-md-12 animate-box">
 							<p><a  onclick = "loadmore('panelmembershipandroless',5,1);"  class="btn btn-primary btn-lg btn-load-more">Load more <i class="icon-reload"></i></a></p>
 						</div>
@@ -1455,7 +1455,7 @@
 						
 
 
-			<section class="colorlib-blog" data-section="blog" style = "margin-top:150px !important;"> 
+			<section class="colorlib-blog" data-section="blog"> 
 				<div class="colorlib-narrow-content">
 					<div class="row">
 						<div class="col-md-6 col-md-offset-3 col-md-pull-3 animate-box" data-animate-effect="fadeInLeft">
@@ -1739,7 +1739,7 @@
 				 console.log(knt);
 				 console.log(id);
 				 console.log(document.querySelector("#"+id).querySelector('[number="'+knt+'"]'));
-				 show = document.querySelector("#"+id).querySelector('[number="'+knt+'"]').style.display === "none"?false:true;
+				 show = document.querySelector("#"+id).querySelector('[number="'+knt+'"]') && document.querySelector("#"+id).querySelector('[number="'+knt+'"]').style.display === "none"?false:true;
 				 if (!show){
 					 anyfound = true;
 				 }
@@ -1852,17 +1852,24 @@
               }	
 	    }	
 		
-	    function showSection(event,sectionId,count) {
+	    function showSection(event,sectionId,count,mainId) {
 		   event.preventDefault();
 		   event.stopPropagation();
            sections1 = document.querySelectorAll('[rel="tab"]');
+		   console.log(sectionId)
            sections1.forEach(function(section) {
-		        section.style.display = 'none';
+			if (section.getAttribute("idn") === mainId){
+				section.style.display = 'none';
+			}		
+		//        section.style.display = 'none';
 		   });
 
 		   sections2 = document.querySelectorAll('[rel="more"]');
            sections2.forEach(function(section) {
-		        section.style.display = 'none';
+		    if (section.getAttribute("idn") === mainId){
+				section.style.display = 'none';
+			}				
+		        //section.style.display = 'none';
 		   });		   
 	
            const selectedSection = document.getElementById(sectionId);

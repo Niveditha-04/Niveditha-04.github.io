@@ -85,7 +85,7 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
+						},  k * 20, 'easeInOutExpo' );
 					});
 					
 				}, 100);
@@ -264,7 +264,7 @@
 
 		$('.sticky-parent').css('height', h);
 
-		$("#sticky_item").stick_in_parent();
+		if ($("#sticky_item") && $("#sticky_item").length > 0) { $("#sticky_item").stick_in_parent()};
 
 	};
 
