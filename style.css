@@ -478,28 +478,32 @@ body.sidebar-open #sidebar-overlay { opacity: 1; pointer-events: all; }
 }
 
 /* ===== STATS ===== */
-.stats-section {
+/* ===== PARALLAX STRIP (replaces stats counters) ===== */
+/* Full-width image band — as you scroll past, the image reveals itself */
+.parallax-strip {
+  width: 100%;
+  height: 38vh;          /* tall enough to see the landscape */
+  min-height: 220px;
+  background: url('images/cover_bg_1.jpg') center / cover;
+  background-attachment: fixed;  /* the parallax magic */
   position: relative;
-  background: url('images/cover_bg_1.jpg') center/cover fixed;
-  padding: 3.5rem 3rem;
 }
-.stats-section::before {
-  content: ''; position: absolute; inset: 0;
-  background: rgba(28,24,46,0.75);
+/* Thin gradient fade at top & bottom so it blends with adjacent sections */
+.parallax-strip::before,
+.parallax-strip::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  height: 48px;
+  pointer-events: none;
 }
-.stats-inner {
-  position: relative; z-index: 1; max-width: 900px; margin: 0 auto;
-  display: grid; grid-template-columns: repeat(4,1fr);
-  gap: 1rem; text-align: center;
+.parallax-strip::before {
+  top: 0;
+  background: linear-gradient(to bottom, var(--bg), transparent);
 }
-.stat-number {
-  font-size: clamp(2rem, 5vw, 3rem);
-  font-weight: 800; color: #fff;
-}
-.stat-label {
-  font-size: 0.68rem; font-weight: 600;
-  letter-spacing: 0.2em; text-transform: uppercase;
-  color: rgba(255,255,255,0.6); margin-top: 0.3rem;
+.parallax-strip::after {
+  bottom: 0;
+  background: linear-gradient(to top, var(--bg), transparent);
 }
 
 /* ===== CARD (education, experience base) ===== */
@@ -954,7 +958,7 @@ footer {
 .ach-title a { color: var(--accent); }
 .ach-title a:hover { text-decoration: underline; }
 
-
+/* ===== HERO ENTRANCE ANIMATIONS ===== */
 /* Elements start invisible — loading screen covers them while they wait */
 #hero .hero-marquee-top,
 #hero .hero-marquee-bottom,
@@ -1027,12 +1031,18 @@ footer {
   overflow: hidden;
   flex-shrink: 0;
   position: relative;
+  cursor: zoom-in;
+}
+/* Zoom-in on hover — like hluebbering.github.io projects */
+.pc-image-wrap:hover .pc-image {
+  transform: scale(1.08);
 }
 .pc-image {
   width: 100%; height: 100%;
   object-fit: cover;
   display: block;
   position: relative; z-index: 1;
+  transition: transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 /* Gradient fallbacks (shown when no image file exists) */
 .pc-img-cva      { background: linear-gradient(135deg,#667eea 0%,#764ba2 100%); }
@@ -1409,3 +1419,89 @@ html[data-theme="dark"] .ss-flash { background: rgba(80, 190, 255, 0.62); }
   .ss-person      { font-size: 1.45rem; }
 }
 @media (max-width: 480px) { #scroll-story { display: none; } }
+
+/* ===== PROJECT IMAGE LIGHTBOX ===== */
+#img-lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9000;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  cursor: zoom-out;
+}
+#img-lightbox.lb-open {
+  display: flex;
+  animation: lbFadeIn 0.22s ease;
+}
+@keyframes lbFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+#lb-img {
+  max-width: 92vw;
+  max-height: 88vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+  animation: lbZoomIn 0.28s cubic-bezier(0.34,1.25,0.64,1);
+}
+@keyframes lbZoomIn {
+  from { transform: scale(0.82); opacity: 0; }
+  to   { transform: scale(1);    opacity: 1; }
+}
+.lb-close {
+  position: absolute; top: 1.2rem; right: 1.5rem;
+  background: none; border: none;
+  color: #fff; font-size: 1.8rem;
+  cursor: pointer; opacity: 0.75; line-height: 1;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.lb-close:hover { opacity: 1; transform: scale(1.15); }
+
+/* ===== RELEVANT COURSEWORK (Education card) ===== */
+.coursework-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 1.5rem;
+  margin-top: 0.5rem;
+}
+.cw-group-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(91,45,155,0.18);
+}
+.cw-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.cw-list li {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  line-height: 1.4;
+}
+.cw-code {
+  font-family: 'Courier New', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(91,45,155,0.08);
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  flex-shrink: 0;
+  letter-spacing: 0.03em;
+}
+@media (max-width: 600px) {
+  .coursework-grid { grid-template-columns: 1fr; }
+}
