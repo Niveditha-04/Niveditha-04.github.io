@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Niveditha Srikanth</title>
+  <title>Niveditha Srikanth — Portfolio</title>
   <meta name="description" content="Niveditha Srikanth — Data Scientist, AI Engineer, Researcher">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -215,7 +215,8 @@
   </section>
 
   <!-- PARALLAX STRIP — full-width image between About and Experience -->
-  <div class="parallax-strip" aria-hidden="true"></div>
+  <!-- The image file: images/cover_bg_1.jpg — scrolls behind the section as you move down -->
+  <div class="parallax-strip" style="background-image: url('images/cover_bg_1.jpg');" aria-hidden="true"></div>
 
   <!-- EXPERIENCE + EDUCATION (toggled, Alex Chen style) -->
   <section id="experience" class="section">
@@ -425,10 +426,31 @@
           </div>
           <div class="ac-achievements">
             <div class="ac-achieve-label">Relevant Coursework:</div>
-            <ul>
-              <li><strong>CS / DS / Maths:</strong> Applied Calculus, Differential Equations, Probability &amp; Statistics, Python for ML</li>
-              <li><strong>Biotechnology (core):</strong> Bioinformatics, Biochemistry, Microbiology, Molecular Biology, Cell Biology, Genetic Engineering, Immunology</li>
-            </ul>
+            <div class="coursework-grid">
+              <div class="cw-group">
+                <div class="cw-group-title">CS / DS / Maths</div>
+                <ul class="cw-list">
+                  <li><span class="cw-code">MA19153</span> Applied Calculus</li>
+                  <li><span class="cw-code">MA19251</span> Differential Equations &amp; Vector Calculus</li>
+                  <li><span class="cw-code">MA19353</span> Transforms and Numerical Methods</li>
+                  <li><span class="cw-code">MA19453</span> Probability and Statistics</li>
+                  <li><span class="cw-code">GE19211</span> Problem Solving &amp; Programming in Python</li>
+                  <li><span class="cw-code">CS19411</span> Python Programming for Machine Learning</li>
+                </ul>
+              </div>
+              <div class="cw-group">
+                <div class="cw-group-title">Biotechnology (core)</div>
+                <ul class="cw-list">
+                  <li><span class="cw-code">BT19702</span> Bioinformatics</li>
+                  <li><span class="cw-code">BT19201</span> Biochemistry</li>
+                  <li><span class="cw-code">BT19301</span> Microbiology</li>
+                  <li><span class="cw-code">BT19502</span> Molecular Biology</li>
+                  <li><span class="cw-code">BT19303</span> Cell Biology</li>
+                  <li><span class="cw-code">BT19602</span> Genetic Engineering</li>
+                  <li><span class="cw-code">BT19504</span> Immunology</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div class="ac-tags">
             <span class="ac-tag">Bioinformatics</span><span class="ac-tag">Python</span><span class="ac-tag">ML Foundations</span><span class="ac-tag">Statistics</span><span class="ac-tag">Molecular Biology</span>
