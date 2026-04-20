@@ -890,9 +890,7 @@ footer {
   padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--card-border);
 }
-.ac-left { flex: 1; display: flex; align-items: center; gap: 1rem; }
-.card-logo { width: 150px; height: 150px; object-fit: contain; border-radius: 20px; flex-shrink: 0; }
-.iitg-logo { width: 200px; height: auto; }
+.ac-left { flex: 1; }
 .ac-right { text-align: right; flex-shrink: 0; }
 .ac-title {
   font-size: 1.02rem;
