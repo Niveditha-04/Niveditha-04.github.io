@@ -954,6 +954,36 @@ footer {
 }
 .ac-tag:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
 
+/* ===== CARD LOGO (Experience / Education) ===== */
+.ac-logo-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--card-border);
+}
+.ac-logo {
+  max-height: 72px;
+  max-width: 200px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+/* ===== CERT ITEM WITH LOGO (Certifications) ===== */
+.ach-cert-flex {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+.cert-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 5px;
+}
+
 /* ach-title links */
 .ach-title a { color: var(--accent); }
 .ach-title a:hover { text-decoration: underline; }
