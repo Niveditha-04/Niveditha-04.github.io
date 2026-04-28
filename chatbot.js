@@ -942,12 +942,76 @@ The Bayesian uncertainty quantification I use in MMM comes from the same probabi
     'blog_why','blog','location','thanks','github_all','identity'
   ];
 
+  // ── DOM INDEX — auto-indexes every section so any question gets an answer ──
+  var DOM_INDEX = [];
+  function buildDomIndex() {
+    var sections = [
+      { id: 'about',        label: 'About Niveditha' },
+      { id: 'experience',   label: 'Work Experience & Education' },
+      { id: 'projects',     label: 'Projects' },
+      { id: 'publications', label: 'Publications & Research' },
+      { id: 'achievements', label: 'Achievements & Certifications' },
+      { id: 'blog',         label: 'Blog' },
+      { id: 'contact',      label: 'Contact' },
+    ];
+    DOM_INDEX = [];
+    sections.forEach(function(s) {
+      var el = document.getElementById(s.id);
+      if (!el) return;
+      // Break section into paragraphs / list items for finer retrieval
+      var chunks = [];
+      el.querySelectorAll('p, li, .pc-title, .pc-desc, .pc-metrics li, .ach-title, .ach-desc, .pub-title, .exp-title, .exp-role, .about-text, h3, h4').forEach(function(node) {
+        var t = node.innerText.replace(/\s+/g, ' ').trim();
+        if (t.length > 30) chunks.push(t);
+      });
+      // Also keep the full section text as one big chunk
+      var full = el.innerText.replace(/\s+/g, ' ').trim();
+      if (full.length > 50) chunks.unshift(full.substring(0, 4000));
+      chunks.forEach(function(chunk) {
+        DOM_INDEX.push({ section: s.label, text: chunk, lower: chunk.toLowerCase() });
+      });
+    });
+  }
+
+  function searchDomIndex(query) {
+    if (!DOM_INDEX.length) buildDomIndex();
+    var words = query.toLowerCase().split(/\W+/).filter(function(w) { return w.length > 2; });
+    if (!words.length) return null;
+    var best = null, bestScore = 0;
+    DOM_INDEX.forEach(function(entry) {
+      var score = 0;
+      words.forEach(function(w) {
+        var re = new RegExp(w, 'g');
+        score += (entry.lower.match(re) || []).length;
+      });
+      if (score > bestScore) { bestScore = score; best = entry; }
+    });
+    if (bestScore < 2) return null; // too weak a match
+    // Pull the most relevant sentence
+    var sentences = best.text.split(/[.!?\n]+/).filter(function(s) { return s.trim().length > 25; });
+    var topSentences = sentences.map(function(s) {
+      var sc = 0;
+      words.forEach(function(w) { if (s.toLowerCase().includes(w)) sc++; });
+      return { s: s.trim(), sc: sc };
+    }).sort(function(a,b) { return b.sc - a.sc; }).slice(0, 4).map(function(x) { return x.s; });
+    var snippet = topSentences.join(' ') || best.text.substring(0, 400);
+    return { section: best.section, snippet: snippet };
+  }
+
   function getResponse(text) {
     for (const key of INTENT_ORDER) {
       const item = KB[key];
       if (item && item.patterns && item.patterns.some(p => p.test(text))) {
         return item;
       }
+    }
+    // Try live DOM search before generic fallback
+    var domResult = searchDomIndex(text);
+    if (domResult) {
+      return {
+        answer: '<strong>From ' + domResult.section + ':</strong><br><br>' + domResult.snippet + '<br><br><em>Want to know more? Try asking something specific!</em>',
+        followups: ["Tell me about your projects", "What's your experience?", "How to contact you?"]
+      };
     }
     return {
       answer: KB.fallback[Math.floor(Math.random() * KB.fallback.length)],
@@ -1155,6 +1219,7 @@ The Bayesian uncertainty quantification I use in MMM comes from the same probabi
     cbWindow.classList.add('cb-open'); launcher.classList.add('cb-open');
     document.getElementById('cb-launcher-icon').innerHTML = '<i class="fa-solid fa-xmark"></i>';
     inputEl.focus();
+    if (!DOM_INDEX.length) buildDomIndex(); // build once on first open
     if (!greeted) {
       greeted = true;
       const g = KB.greeting[Math.floor(Math.random() * KB.greeting.length)];
