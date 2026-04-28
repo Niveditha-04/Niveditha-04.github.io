@@ -51,7 +51,12 @@
 <!-- ===== SIDEBAR ===== -->
 <aside id="sidebar">
   <img src="images/niveditha.gif" alt="Niveditha Srikanth" class="sidebar-profile-img" onerror="this.style.background='#5B2D9B';this.src='data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'100\' height=\'100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%235B2D9B\'/><text x=\'50\' y=\'60\' font-size=\'36\' text-anchor=\'middle\' fill=\'white\' font-family=\'sans-serif\'>NS</text></svg>'">
-  <div class="sidebar-name">Niveditha Srikanth</div>
+  <div class="sidebar-name">
+    Niveditha Srikanth
+    <button id="sidebar-name-speak" title="Hear name pronunciation" aria-label="Pronounce name">
+      <i class="fa-solid fa-volume-high"></i>
+    </button>
+  </div>
   <div class="sidebar-social">
     <a href="https://www.linkedin.com/in/niveditha-s04/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
     <a href="https://github.com/Niveditha-04" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -69,6 +74,9 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+  <div class="sidebar-hello">
+    <span class="sidebar-hello-word" id="sidebar-hello-word">hello</span>
+  </div>
 </aside>
 
 <!-- ===== TOPBAR ===== -->
@@ -77,6 +85,11 @@
     <span class="brand-name">Niveditha Srikanth</span>
   </div>
   <div class="topbar-right">
+    <div class="topbar-time-loc" id="topbar-time-loc">
+      <span class="topbar-time" id="topbar-time">--:-- --</span>
+      <span class="topbar-location">&#128205; Chennai, India</span>
+      <span class="topbar-date" id="topbar-date">-- --- ----</span>
+    </div>
     <button id="theme-toggle" title="Toggle theme" aria-label="Toggle theme">
       <i class="fa-solid fa-moon" id="theme-icon"></i>
     </button>
@@ -486,21 +499,48 @@
     <div class="section-inner" data-bg="PROJECTS">
       <div class="section-label anim">Projects</div>
       <h2 class="section-title anim">What I've Built?</h2>
-      <div class="projects-grid-ac">
 
-        <!-- Cerebrovascular Accident Prognosis -->
-        <div class="project-card-ac anim">
+      <!-- Controls row: GitHub link + Domain filter -->
+      <div class="proj-controls anim">
+        <a href="https://github.com/Niveditha-04?tab=repositories" target="_blank" class="proj-github-btn">
+          <i class="fa-brands fa-github"></i> GitHub
+        </a>
+        <div class="proj-domain-wrap" id="proj-domain-wrap">
+          <button class="proj-domain-toggle" id="proj-domain-toggle" type="button">
+            <i class="fa-solid fa-layer-group"></i> Filter by Domain <i class="fa-solid fa-chevron-down" id="proj-chevron"></i>
+          </button>
+          <div class="proj-domain-dropdown" id="proj-domain-dropdown">
+            <button class="proj-filter active" data-filter="all" type="button">All (16)</button>
+            <button class="proj-filter" data-filter="healthcare" type="button">Healthcare &amp; Clinical ML (4)</button>
+            <button class="proj-filter" data-filter="bioinformatics" type="button">Bioinformatics (1)</button>
+            <button class="proj-filter" data-filter="cloud" type="button">Cloud &amp; Data Engineering (2)</button>
+            <button class="proj-filter" data-filter="nlp" type="button">NLP &amp; AI (2)</button>
+            <button class="proj-filter" data-filter="marketing" type="button">Marketing &amp; Analytics (2)</button>
+            <button class="proj-filter" data-filter="fullstack" type="button">Full-Stack &amp; Systems (3)</button>
+            <button class="proj-filter" data-filter="vision" type="button">Computer Vision (2)</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="projects-grid-ac" id="projects-grid">
+
+        <!-- 1. Cerebrovascular Accident Prognosis -->
+        <div class="project-card-ac anim" data-domain="healthcare" data-batch="1">
           <div class="pc-image-wrap pc-img-cva">
             <img src="images/project-cva.jpeg" alt="CVA Prognosis" class="pc-image" onerror="this.style.display='none'">
           </div>
           <div class="pc-body">
             <div class="pc-title">Cerebrovascular Accident Prognosis using Supervised ML</div>
-            <div class="pc-desc">Compared Random Forest, XGBoost, and Decision Tree on clinical data to predict stroke prognosis. Applied label encoding, mean imputation, and hyperparameter tuning via grid search evaluated on AUC-ROC.</div>
+            <div class="pc-desc">Compared Random Forest, XGBoost, and Decision Tree on clinical data to predict stroke prognosis. Applied label encoding, mean imputation, standard scaling, and hyperparameter tuning via grid search; evaluated on AUC-ROC, precision, recall, and F1.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">scikit-learn</span>
               <span class="pc-tag">Random Forest</span>
-              <span class="pc-tag pc-tag-more">+3</span>
+              <span class="pc-tag pc-tag-hidden">XGBoost</span>
+              <span class="pc-tag pc-tag-hidden">Decision Tree</span>
+              <span class="pc-tag pc-tag-hidden">pandas</span>
+              <span class="pc-tag pc-tag-hidden">AUC-ROC analysis</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
             </div>
             <ul class="pc-metrics">
               <li>99.93% accuracy (Random Forest)</li>
@@ -513,19 +553,26 @@
           </div>
         </div>
 
-        <!-- Gene Expression Clustering -->
-        <div class="project-card-ac anim">
+        <!-- 2. Gene Expression Clustering -->
+        <div class="project-card-ac anim" data-domain="bioinformatics" data-batch="1">
           <div class="pc-image-wrap pc-img-gene">
             <img src="images/project-gene.jpg" alt="Gene Expression" class="pc-image" onerror="this.style.display='none'">
           </div>
           <div class="pc-body">
             <div class="pc-title">Mclust-Based Gene Expression Clustering for Immune Checkpoint Analysis</div>
-            <div class="pc-desc">Applied PCA + Mclust clustering on gene expression data to identify immune checkpoint regulators in T2D-associated atherosclerosis, validated with t-SNE and STRING network hub gene ranking.</div>
+            <div class="pc-desc">Applied PCA + Mclust clustering on gene expression data to identify immune checkpoint regulators in T2D-associated atherosclerosis, validated with t-SNE, BIC/ICL, and STRING network hub gene ranking.</div>
             <div class="pc-tags">
               <span class="pc-tag">R</span>
               <span class="pc-tag">Mclust</span>
               <span class="pc-tag">PCA</span>
-              <span class="pc-tag pc-tag-more">+5</span>
+              <span class="pc-tag pc-tag-hidden">t-SNE</span>
+              <span class="pc-tag pc-tag-hidden">UMAP</span>
+              <span class="pc-tag pc-tag-hidden">ggplot2</span>
+              <span class="pc-tag pc-tag-hidden">KEGG</span>
+              <span class="pc-tag pc-tag-hidden">STRING</span>
+              <span class="pc-tag pc-tag-hidden">Cytoscape</span>
+              <span class="pc-tag pc-tag-hidden">Enrichr</span>
+              <button class="pc-tag pc-tag-more" type="button">+8</button>
             </div>
             <ul class="pc-metrics">
               <li>49,000+ genes processed</li>
@@ -538,19 +585,23 @@
           </div>
         </div>
 
-        <!-- Healthcare Claims Fraud -->
-        <div class="project-card-ac anim">
+        <!-- 3. Healthcare Claims Fraud -->
+        <div class="project-card-ac anim" data-domain="healthcare" data-batch="1">
           <div class="pc-image-wrap pc-img-fraud">
             <img src="images/project-fraud.jpeg" alt="Healthcare Fraud" class="pc-image" onerror="this.style.display='none'">
           </div>
           <div class="pc-body">
             <div class="pc-title">Healthcare Claims Fraud &amp; Anomaly Detection Pipeline</div>
-            <div class="pc-desc">Detected fraudulent insurance claims combining rule-based SQL flagging, provider outlier scoring with BIRCH &amp; LOF, and anomaly ranking surfaced through a Power BI dashboard.</div>
+            <div class="pc-desc">Detected fraudulent insurance claims combining rule-based SQL flagging, provider outlier scoring, and combined anomaly ranking surfaced through a Power BI dashboard.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">PostgreSQL</span>
               <span class="pc-tag">SQL</span>
-              <span class="pc-tag pc-tag-more">+4</span>
+              <span class="pc-tag pc-tag-hidden">Scikit-learn</span>
+              <span class="pc-tag pc-tag-hidden">pandas</span>
+              <span class="pc-tag pc-tag-hidden">psycopg2</span>
+              <span class="pc-tag pc-tag-hidden">Power BI</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
             </div>
             <ul class="pc-metrics">
               <li>1M+ claims processed</li>
@@ -563,23 +614,29 @@
           </div>
         </div>
 
-        <!-- Log Analytics AWS -->
-        <div class="project-card-ac anim">
+        <!-- 4. Log Analytics AWS -->
+        <div class="project-card-ac anim" data-domain="cloud" data-batch="1">
           <div class="pc-image-wrap pc-img-logs">
             <img src="images/project-logs.jpeg" alt="Log Analytics" class="pc-image" onerror="this.style.display='none'">
           </div>
           <div class="pc-body">
             <div class="pc-title">Log Analytics Pipeline on AWS</div>
-            <div class="pc-desc">End-to-end serverless pipeline ingesting raw web server logs into S3, transforming via PySpark Glue ETL, and exposing 5-minute error-rate aggregations as Athena-queryable tables with real-time Power BI visualization.</div>
+            <div class="pc-desc">End-to-end serverless pipeline ingesting raw web server logs into S3, transforming via PySpark Glue ETL with data quality checks, and exposing 5-minute error-rate aggregations as Athena-queryable tables for real-time Power BI visualization.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">AWS S3</span>
               <span class="pc-tag">PySpark</span>
-              <span class="pc-tag pc-tag-more">+5</span>
+              <span class="pc-tag pc-tag-hidden">AWS Glue</span>
+              <span class="pc-tag pc-tag-hidden">Athena</span>
+              <span class="pc-tag pc-tag-hidden">CloudWatch</span>
+              <span class="pc-tag pc-tag-hidden">Lambda</span>
+              <span class="pc-tag pc-tag-hidden">Kinesis</span>
+              <span class="pc-tag pc-tag-hidden">Power BI</span>
+              <button class="pc-tag pc-tag-more" type="button">+6</button>
             </div>
             <ul class="pc-metrics">
               <li>5M+ log records processed</li>
-              <li>~90% detection accuracy</li>
+              <li>~90% anomaly detection accuracy</li>
               <li>2 Glue ETL jobs (parse + aggregate)</li>
             </ul>
           </div>
@@ -588,22 +645,27 @@
           </div>
         </div>
 
-        <!-- Scientific Paper Clustering -->
-        <div class="project-card-ac anim">
+        <!-- 5. Scientific Paper Clustering -->
+        <div class="project-card-ac anim" data-domain="nlp" data-batch="1">
           <div class="pc-image-wrap pc-img-paper">
             <img src="images/project-paper.jpg" alt="Paper Clustering" class="pc-image" onerror="this.style.display='none'">
           </div>
           <div class="pc-body">
             <div class="pc-title">Scientific Paper Clustering for Similarity Discovery</div>
-            <div class="pc-desc">Grouped arXiv abstracts by semantic similarity using NLP embeddings with topic modelling per cluster and preprocessing strategy comparisons across vectorisation variants, enabling literature discovery at scale.</div>
+            <div class="pc-desc">Grouped arXiv abstracts by semantic similarity using NLP embeddings with topic modelling per cluster and preprocessing strategy comparisons across vectorisation and language handling variants.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">TF-IDF</span>
               <span class="pc-tag">K-Means</span>
-              <span class="pc-tag pc-tag-more">+3</span>
+              <span class="pc-tag pc-tag-hidden">PCA</span>
+              <span class="pc-tag pc-tag-hidden">t-SNE</span>
+              <span class="pc-tag pc-tag-hidden">UMAP</span>
+              <span class="pc-tag pc-tag-hidden">NLP</span>
+              <span class="pc-tag pc-tag-hidden">topic modelling</span>
+              <button class="pc-tag pc-tag-more" type="button">+5</button>
             </div>
             <ul class="pc-metrics">
-              <li>10K+ research papers</li>
+              <li>10K+ research papers clustered</li>
               <li>40% literature retrieval efficiency improved</li>
               <li>Multi-language preprocessing tested</li>
             </ul>
@@ -613,8 +675,8 @@
           </div>
         </div>
 
-        <!-- Bayesian MMM -->
-        <div class="project-card-ac anim">
+        <!-- 6. Bayesian MMM -->
+        <div class="project-card-ac anim" data-domain="marketing" data-batch="1">
           <div class="pc-image-wrap pc-img-bayesian">
             <img src="images/project-bayesian.jpg" alt="Bayesian MMM" class="pc-image" onerror="this.style.display='none'">
           </div>
@@ -625,12 +687,16 @@
               <span class="pc-tag">R</span>
               <span class="pc-tag">rstanarm</span>
               <span class="pc-tag">tidyverse</span>
-              <span class="pc-tag pc-tag-more">+3</span>
+              <span class="pc-tag pc-tag-hidden">SQL (SQLite)</span>
+              <span class="pc-tag pc-tag-hidden">bayesplot</span>
+              <span class="pc-tag pc-tag-hidden">broom.mixed</span>
+              <span class="pc-tag pc-tag-hidden">ggplot2</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
             </div>
             <ul class="pc-metrics">
               <li>900 multi-channel ad records</li>
-              <li>5 marketing channels modelled</li>
-              <li>Shift 10–15% budget from low-ROI channels</li>
+              <li>5 marketing channels modelled over 6 months</li>
+              <li>10–15% budget shift from low-ROI channels identified</li>
             </ul>
           </div>
           <div class="pc-footer">
@@ -638,12 +704,310 @@
           </div>
         </div>
 
+        <!-- 7. ETL AWS E-commerce -->
+        <div class="project-card-ac anim proj-hidden" data-domain="cloud" data-batch="2">
+          <div class="pc-image-wrap pc-img-etl">
+            <img src="images/project-ecommerce.jpeg" alt="E-commerce" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">ETL AWS E-commerce Payments Pipeline</div>
+            <div class="pc-desc">End-to-end AWS pipeline transforming raw synthetic e-commerce payment transactions into clean Redshift tables for revenue trends and anomaly checks; automated anomaly detection, CloudWatch monitoring, and Tableau dashboards.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">AWS Glue</span>
+              <span class="pc-tag">PySpark</span>
+              <span class="pc-tag pc-tag-hidden">Redshift Serverless</span>
+              <span class="pc-tag pc-tag-hidden">SQL</span>
+              <span class="pc-tag pc-tag-hidden">Tableau</span>
+              <span class="pc-tag pc-tag-hidden">CloudWatch</span>
+              <span class="pc-tag pc-tag-hidden">AWS S3</span>
+              <button class="pc-tag pc-tag-more" type="button">+5</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>1M+ payment records ingested &amp; processed</li>
+              <li>60% reduction in manual reporting time</li>
+              <li>8-column enriched schema with currency conversion</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/ETL-AWS-Ecommerce-Payments-Pipeline" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 8. Smart City Management Platform -->
+        <div class="project-card-ac anim proj-hidden" data-domain="fullstack" data-batch="2">
+          <div class="pc-image-wrap pc-img-smartcity">
+            <img src="images/project-smartcity.jpeg" alt="Smart City" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Smart City Management Platform</div>
+            <div class="pc-desc">Full-stack real-time monitoring platform managing city infrastructure (traffic, air quality, waste, utilities) with threshold-based anomaly alerts and role-based dashboards across backend, frontend, and CI/CD pipelines.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">React.js</span>
+              <span class="pc-tag">Node.js</span>
+              <span class="pc-tag">FastAPI</span>
+              <span class="pc-tag pc-tag-hidden">PostgreSQL</span>
+              <span class="pc-tag pc-tag-hidden">Docker</span>
+              <span class="pc-tag pc-tag-hidden">JWT</span>
+              <span class="pc-tag pc-tag-hidden">MongoDB</span>
+              <span class="pc-tag pc-tag-hidden">Chart.js</span>
+              <span class="pc-tag pc-tag-hidden">Render</span>
+              <button class="pc-tag pc-tag-more" type="button">+6</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>4 city modules: traffic, air quality, waste, utilities</li>
+              <li>Real-time alerts with &lt;2s notification latency</li>
+              <li>3 user roles (Admin, Operator, Viewer) with JWT auth</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Smart-City-Management-Platform" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 9. Fake News Detection -->
+        <div class="project-card-ac anim proj-hidden" data-domain="nlp" data-batch="2">
+          <div class="pc-image-wrap pc-img-fakenews">
+            <img src="images/project-faknews.jpeg" alt="Fake News" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Fake News Detection (TF-IDF + PA Classifier)</div>
+            <div class="pc-desc">NLP pipeline classifying news articles as real or fake using TF-IDF vectorization and a Passive Aggressive Classifier trained on a large labeled news corpus with 75/25 train-test split.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">TF-IDF Vectorizer</span>
+              <span class="pc-tag">NLP (NLTK)</span>
+              <span class="pc-tag pc-tag-hidden">Passive Aggressive Classifier</span>
+              <span class="pc-tag pc-tag-hidden">Scikit-learn</span>
+              <span class="pc-tag pc-tag-hidden">NumPy</span>
+              <span class="pc-tag pc-tag-hidden">Pandas</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>99.33% accuracy, F1-score of 0.993</li>
+              <li>44,898 articles (23,481 fake + 21,417 real)</li>
+              <li>108,145 TF-IDF features extracted</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Fake-News-Detection" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 10. Marketing Campaign Analysis -->
+        <div class="project-card-ac anim proj-hidden" data-domain="marketing" data-batch="2">
+          <div class="pc-image-wrap pc-img-marketing">
+            <img src="images/project-youtubeads.jpeg" alt="Youtube Ads" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Marketing Campaign Analysis (YouTube Ads CTR &amp; ROI)</div>
+            <div class="pc-desc">Analyzed Google Ads campaign data to surface CTR, CPC, ROAS, and conversion trends across countries and devices, identifying underperforming channels and recommending data-driven budget reallocation.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">BigQuery</span>
+              <span class="pc-tag">Looker Studio</span>
+              <span class="pc-tag pc-tag-hidden">pandas</span>
+              <span class="pc-tag pc-tag-hidden">Matplotlib</span>
+              <span class="pc-tag pc-tag-hidden">Seaborn</span>
+              <span class="pc-tag pc-tag-hidden">SQL</span>
+              <span class="pc-tag pc-tag-hidden">Google Ads</span>
+              <button class="pc-tag pc-tag-more" type="button">+5</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>1.5M+ campaign records analyzed</li>
+              <li>18% improvement in budget allocation efficiency</li>
+              <li>6 dashboard panels: KPI, treemap, ROAS, CTR/CPC heatmap</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Marketing-Campaign-Analysis-YouTube-Ads" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 11. Maternal Risk Prediction -->
+        <div class="project-card-ac anim proj-hidden" data-domain="healthcare" data-batch="2">
+          <div class="pc-image-wrap pc-img-maternal">
+            <img src="images/project-maternalpregnancy.jpeg" alt="Pregnancy" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Maternal Risk Prediction during Pregnancy</div>
+            <div class="pc-desc">Benchmarked 9 supervised ML classifiers to predict maternal risk level (low/mid/high) on IoT-collected clinical indicators using 10-fold cross-validation and ensemble voting to maximize predictive reliability.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">XGBoost</span>
+              <span class="pc-tag">CatBoost</span>
+              <span class="pc-tag pc-tag-hidden">Random Forest</span>
+              <span class="pc-tag pc-tag-hidden">Voting Classifier</span>
+              <span class="pc-tag pc-tag-hidden">SVM</span>
+              <span class="pc-tag pc-tag-hidden">Logistic Regression</span>
+              <span class="pc-tag pc-tag-hidden">Scikit-learn</span>
+              <button class="pc-tag pc-tag-more" type="button">+5</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>~89% classification accuracy (Random Forest)</li>
+              <li>1,014 patient samples, 3 risk classes</li>
+              <li>9 classifiers benchmarked end-to-end</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Maternal-Risk-Prediction" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 12. Heart Disease Prediction -->
+        <div class="project-card-ac anim proj-hidden" data-domain="healthcare" data-batch="2">
+          <div class="pc-image-wrap pc-img-heart">
+            <img src="images/project-heartdisease.jpeg" alt="Heart Disease" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Heart Disease Prediction using Supervised ML</div>
+            <div class="pc-desc">Compared 4 supervised ML algorithms on 13 clinical attributes from the UCI Heart Disease dataset to predict cardiac diagnosis presence using logistic regression with feature scaling and confusion matrix evaluation.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">Random Forest</span>
+              <span class="pc-tag">SVM</span>
+              <span class="pc-tag pc-tag-hidden">Naive Bayes</span>
+              <span class="pc-tag pc-tag-hidden">Decision Tree</span>
+              <span class="pc-tag pc-tag-hidden">Scikit-learn</span>
+              <span class="pc-tag pc-tag-hidden">Logistic Regression</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>78.6% best accuracy (Random Forest)</li>
+              <li>4 algorithms benchmarked on UCI dataset</li>
+              <li>13 clinical features: continuous, ordinal &amp; binary</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Heart-Disease-Prediction" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 13. Smart Online Banking System -->
+        <div class="project-card-ac anim proj-hidden" data-domain="fullstack" data-batch="3">
+          <div class="pc-image-wrap pc-img-banking">
+            <img src="images/project-banking.jpeg" alt="Banking" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Smart Online Banking System</div>
+            <div class="pc-desc">Multi-user web banking application supporting fund transfers with complete transaction history and a structured payment workflow from user selection to confirmation, secured with SHA-256 encryption.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">Django</span>
+              <span class="pc-tag">MySQL</span>
+              <span class="pc-tag pc-tag-hidden">PHP</span>
+              <span class="pc-tag pc-tag-hidden">Bootstrap</span>
+              <span class="pc-tag pc-tag-hidden">REST APIs</span>
+              <span class="pc-tag pc-tag-hidden">SHA-256 encryption</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>SHA-256 end-to-end encrypted transactions</li>
+              <li>100% audit trail — every transfer timestamped &amp; logged</li>
+              <li>7 PHP modules, full CRUD with zero data loss</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Smart-Online-Banking-System" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 14. Face Recognition & Age Detection -->
+        <div class="project-card-ac anim proj-hidden" data-domain="vision" data-batch="3">
+          <div class="pc-image-wrap pc-img-face">
+            <img src="images/project-facerecognition.jpeg" alt="Face Recognition" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Face Recognition &amp; Age Detection using LBPH</div>
+            <div class="pc-desc">Real-time face recognition system identifying individuals from a trained dataset and predicting age using Local Binary Patterns Histograms with Haar and LBP cascade classifiers via webcam feed.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">OpenCV</span>
+              <span class="pc-tag">LBPH Algorithm</span>
+              <span class="pc-tag pc-tag-hidden">Haar Cascade</span>
+              <span class="pc-tag pc-tag-hidden">LBP Cascade</span>
+              <span class="pc-tag pc-tag-hidden">NumPy</span>
+              <button class="pc-tag pc-tag-more" type="button">+3</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>~91% face recognition accuracy on held-out test set</li>
+              <li>Real-time inference at 30fps via webcam feed</li>
+              <li>3 cascade classifier variants benchmarked</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Face-Recognition-Age-Detection-LBPH" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 15. Intelligent Image Enhancer -->
+        <div class="project-card-ac anim proj-hidden" data-domain="vision" data-batch="3">
+          <div class="pc-image-wrap pc-img-imgenhancer">
+            <img src="images/project-imageenhancer.jpeg" alt="Image Enhancer" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">Intelligent Image Enhancer &amp; Pixel Sharpener</div>
+            <div class="pc-desc">Desktop image processing tool with a GUI for enhancement, sharpening, grayscale conversion, and flexible custom cropping with before/after live preview and local file export.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">OpenCV</span>
+              <span class="pc-tag">Tkinter</span>
+              <span class="pc-tag pc-tag-hidden">PIL/Pillow</span>
+              <span class="pc-tag pc-tag-hidden">NumPy</span>
+              <span class="pc-tag pc-tag-hidden">Matplotlib</span>
+              <span class="pc-tag pc-tag-hidden">Pygame</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>&lt;100ms per-image processing (desktop-speed GUI)</li>
+              <li>3 enhancement techniques: CLAHE, unsharp mask, kernel sharpening</li>
+              <li>4 core operations with live before/after preview</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Intelligent-Image-Enhancer" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 16. IIT Job Scheduler -->
+        <div class="project-card-ac anim proj-hidden" data-domain="fullstack" data-batch="3">
+          <div class="pc-image-wrap pc-img-scheduler">
+            <img src="images/project-jobscheduler.jpg" alt="Job Scheduler" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">IIT Job Scheduler — G2406 T1</div>
+            <div class="pc-desc">CPU job scheduling simulator implementing FCFS, SJF, Priority, and Round Robin algorithms; benchmarked algorithms across process sets and visualized turnaround and wait time performance via Gantt charts.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">C++</span>
+              <span class="pc-tag">CPU Scheduling</span>
+              <span class="pc-tag">OS Concepts</span>
+              <span class="pc-tag pc-tag-hidden">FCFS</span>
+              <span class="pc-tag pc-tag-hidden">SJF</span>
+              <span class="pc-tag pc-tag-hidden">Round Robin</span>
+              <span class="pc-tag pc-tag-hidden">Process Management</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>4 scheduling algorithms implemented (FCFS, SJF, Priority, RR)</li>
+              <li>O(1) constant-time core operations</li>
+              <li>Gantt chart output for complete process visualization</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/IIT-Job-Scheduler-G2406-T1" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
       </div>
-      <div style="margin-top:2.5rem; text-align:center;">
-        <a href="https://github.com/Niveditha-04?tab=repositories" target="_blank" class="btn-hero" style="display:inline-flex;">
-          <i class="fa-brands fa-github"></i> More on GitHub
-        </a>
+
+      <!-- Load More / Show Less -->
+      <div class="proj-load-wrap" id="proj-load-wrap">
+        <button class="proj-load-btn" id="proj-load-btn" type="button">
+          <i class="fa-solid fa-grid-2"></i> Load More Projects
+          <span class="proj-load-count" id="proj-load-count">(10 remaining)</span>
+        </button>
       </div>
+
     </div>
   </section>
 
@@ -933,7 +1297,8 @@
       </div>
         </div><!-- /ach-content -->
       </div><!-- /ach-layout -->
-    </div>
+    </div><!-- /section-inner -->
+  </div><!-- /section-inner close -->
   </section>
 
   <!-- BLOG -->
@@ -1760,6 +2125,176 @@ document.querySelectorAll('.pc-image-wrap').forEach(wrap => {
       }
     });
   });
+})();
+
+// ===== SIDEBAR NAME PRONUNCIATION =====
+(function() {
+  var btn = document.getElementById('sidebar-name-speak');
+  if (!btn) return;
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    window.speechSynthesis && window.speechSynthesis.cancel();
+    var utt = new SpeechSynthesisUtterance('Niveditha Srikanth');
+    utt.lang = 'en-IN'; utt.rate = 0.82; utt.pitch = 1.05;
+    window.speechSynthesis.speak(utt);
+  });
+})();
+
+// ===== IST CLOCK =====
+(function() {
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function updateIST() {
+    var timeEl = document.getElementById('topbar-time');
+    var dateEl = document.getElementById('topbar-date');
+    if (!timeEl) return;
+    var now = new Date();
+    var ist = new Date(now.toLocaleString('en-US', { timeZone: 'Asia/Kolkata' }));
+    var h = ist.getHours(), m = ist.getMinutes(), s = ist.getSeconds();
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    timeEl.textContent = String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0') + ' ' + ampm + ' IST';
+    if (dateEl) dateEl.textContent = String(ist.getDate()).padStart(2,'0') + ' ' + MONTHS[ist.getMonth()] + ' ' + ist.getFullYear();
+  }
+  updateIST();
+  setInterval(updateIST, 1000);
+})();
+
+// ===== SIDEBAR HELLO CYCLING =====
+(function() {
+  var hellos = ['hello','vanakkam','namaste','hola','bonjour','ciao','こんにちは','안녕하세요','مرحبا','你好','Hallo','olá'];
+  var idx = 0, interval = null;
+  var el = document.getElementById('sidebar-hello-word');
+  if (!el) return;
+  function startCycling() {
+    if (interval) return;
+    interval = setInterval(function() {
+      el.classList.add('sidebar-hello-fade');
+      setTimeout(function() {
+        idx = (idx + 1) % hellos.length;
+        el.textContent = hellos[idx];
+        el.classList.remove('sidebar-hello-fade');
+      }, 200);
+    }, 1400);
+  }
+  function stopCycling() {
+    clearInterval(interval); interval = null; idx = 0;
+    el.textContent = hellos[0]; el.classList.remove('sidebar-hello-fade');
+  }
+  var hamburger = document.getElementById('hamburger');
+  var overlay = document.getElementById('sidebar-overlay');
+  if (hamburger) hamburger.addEventListener('click', function() {
+    setTimeout(function() {
+      document.body.classList.contains('sidebar-open') ? startCycling() : stopCycling();
+    }, 50);
+  });
+  if (overlay) overlay.addEventListener('click', stopCycling);
+  document.querySelectorAll('#sidebar-nav a').forEach(function(a) { a.addEventListener('click', stopCycling); });
+})();
+
+// ===== EXPANDABLE SKILL TAGS =====
+document.querySelectorAll('.pc-tag-more').forEach(function(btn) {
+  btn.dataset.count = btn.textContent; // save original label on page load
+  btn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var tags = btn.closest('.pc-tags');
+    var expanded = tags.classList.toggle('expanded');
+    btn.textContent = expanded ? 'less' : btn.dataset.count;
+  });
+});
+
+// ===== PROJECTS: LOAD MORE + DOMAIN FILTER =====
+(function() {
+  var grid = document.getElementById('projects-grid');
+  var loadBtn = document.getElementById('proj-load-btn');
+  var loadWrap = document.getElementById('proj-load-wrap');
+  var loadCount = document.getElementById('proj-load-count');
+  var filterBtns = document.querySelectorAll('.proj-filter');
+  var domainToggle = document.getElementById('proj-domain-toggle');
+  var domainDropdown = document.getElementById('proj-domain-dropdown');
+  var chevron = document.getElementById('proj-chevron');
+  var currentBatch = 1;
+  var currentFilter = 'all';
+
+  function allCards() { return grid ? Array.from(grid.querySelectorAll('.project-card-ac')) : []; }
+
+  function applyState() {
+    var cards = allCards();
+    var remaining = 0;
+    cards.forEach(function(card) {
+      var batch = parseInt(card.dataset.batch || '1');
+      var domain = card.dataset.domain || 'all';
+      var filterOk = currentFilter === 'all' || domain === currentFilter;
+      if (!filterOk) {
+        card.style.display = 'none';
+        return;
+      }
+      if (currentFilter !== 'all') {
+        // Domain filter active: show ALL matching cards regardless of batch
+        card.style.display = '';
+      } else {
+        // "All" mode: respect load-more batch logic
+        var batchOk = batch <= currentBatch;
+        card.style.display = batchOk ? '' : 'none';
+        if (!batchOk) remaining++;
+      }
+    });
+    if (!loadWrap) return;
+    if (currentFilter !== 'all') {
+      loadWrap.style.display = 'none';
+    } else {
+      loadWrap.style.display = remaining > 0 ? '' : 'none';
+      if (loadCount) {
+        loadCount.textContent = remaining > 0 ? '(' + remaining + ' remaining)' : '';
+      }
+    }
+  }
+
+  if (loadBtn) {
+    loadBtn.addEventListener('click', function() {
+      currentBatch++;
+      applyState();
+    });
+  }
+
+  filterBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      filterBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilter = btn.dataset.filter;
+      if (domainDropdown) domainDropdown.classList.remove('open');
+      if (chevron) chevron.style.transform = '';
+      applyState();
+    });
+  });
+
+  if (domainToggle && domainDropdown) {
+    domainToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var open = domainDropdown.classList.toggle('open');
+      if (chevron) chevron.style.transform = open ? 'rotate(180deg)' : '';
+    });
+    document.addEventListener('click', function() {
+      domainDropdown.classList.remove('open');
+      if (chevron) chevron.style.transform = '';
+    });
+  }
+
+  applyState();
+})();
+
+// ===== ANIMATED FAVICON =====
+(function() {
+  var favicons = [
+    'images/favicon-1.png','images/favicon-2.png','images/favicon-3.png',
+    'images/favicon-4.png','images/favicon-5.png','images/favicon-6.png','images/favicon-7.png'
+  ];
+  var idx = 0;
+  var link = document.querySelector('link[rel="icon"]') || document.querySelector('link[rel="shortcut icon"]');
+  if (!link) return;
+  setInterval(function() {
+    idx = (idx + 1) % favicons.length;
+    link.href = favicons[idx] + '?t=' + Date.now();
+  }, 1200);
 })();
 
 // ===== CONTACT FORM =====
