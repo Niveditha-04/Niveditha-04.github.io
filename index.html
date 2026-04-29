@@ -11,10 +11,26 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="chatbot.css">
   <link rel="preload" href="video/hero-bg.mp4" as="video" type="video/mp4">
-  <link rel="icon" href="images/favicon.png" type="image/png" sizes="32x32">
-  <link rel="shortcut icon" href="images/favicon.png" sizes="32x32">
+  <link rel="icon" id="fav" href="images/favicon-1.png" type="image/png" sizes="64x64">
+  <link rel="shortcut icon" href="images/favicon-1.png" sizes="64x64">
+  <script>
+  (function(){
+    var imgs=['images/favicon-1.png','images/favicon-2.png','images/favicon-3.png',
+              'images/favicon-4.png','images/favicon-5.png','images/favicon-6.png',
+              'images/favicon-7.png'];
+    var canvas=document.createElement('canvas'); canvas.width=64; canvas.height=64;
+    var ctx=canvas.getContext('2d');
+    var link=document.getElementById('fav');
+    var loaded=[],fi=0,done=0;
+    function tick(){ctx.clearRect(0,0,64,64);ctx.drawImage(loaded[fi],0,0,64,64);link.href=canvas.toDataURL('image/png');fi=(fi+1)%loaded.length;}
+    imgs.forEach(function(src,i){
+      var img=new Image();
+      img.onload=function(){loaded[i]=img;done++;if(done===imgs.length)setInterval(tick,120);};
+      img.src=src;
+    });
+  })();
+  </script>
   <style>
   @font-face {
     font-family: 'Agustina';
