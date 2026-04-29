@@ -1,0 +1,9 @@
+.claude/
+.DS_Store
+portfolio-chatbot/.env
+portfolio-chatbot/backend/chroma_db/
+portfolio-chatbot/backend/my_voice.wav
+portfolio-chatbot/backend/__pycache__/
+portfolio-chatbot/__pycache__/
+*.pyc
+*.pyo

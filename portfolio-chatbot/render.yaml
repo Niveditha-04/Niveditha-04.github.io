@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: niveditha-chatbot
+    runtime: python
+    buildCommand: pip install -r backend/requirements.txt
+    startCommand: cd backend && uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: GITHUB_USERNAME
+        value: Niveditha-04
+      - key: PORTFOLIO_URL
+        value: https://niveditha-04.github.io/
+      - key: VOICE_REF_PATH
+        value: my_voice.wav
+    plan: free
