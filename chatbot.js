@@ -153,7 +153,7 @@
 
   /* ── Inject HTML ────────────────────────────────────────────────────────── */
   const _wrap = document.createElement('div');
-  _wrap.innerHTML = '<button id="cb-launcher" aria-label="Open chat" title="Chat with Niveditha\'s AI"><svg class="ico-chat" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.047 21.34a.75.75 0 0 0 .955.955l4.172-1.391A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Z"/></svg><svg class="ico-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></button><div id="cb-window" role="dialog" aria-label="Chat with Niveditha"><div class="cb-header"><div class="cb-avatar" id="cb-av">N</div><div class="cb-hinfo"><div class="cb-hname">Niveditha Srikanth</div><div class="cb-hstatus"><span class="cb-dot"></span> Talking directly to Nivi</div></div><div class="cb-hbtns"><button class="cb-hbtn" id="cb-refresh-btn" title="Refresh knowledge base">&#8634;</button><button class="cb-hbtn" id="cb-clear-btn" title="Clear chat">&#10005;</button></div></div><div class="cb-msgs" id="cb-msgs"></div><div class="cb-sugg" id="cb-sugg"></div><div id="cb-img-preview"><img id="cb-img-thumb" src="" alt="Attached image"><span>Click to remove</span></div><div class="cb-bar"><button class="cb-btn" id="cb-attach-btn" title="Attach image"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2ZM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5Z"/></svg></button><input type="file" id="cb-file" accept="image/*" style="display:none"><textarea id="cb-input" rows="1" placeholder="Ask Niveditha anything…"></textarea><button class="cb-btn" id="cb-mic" title="Voice input"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 1a4 4 0 0 0-4 4v6a4 4 0 0 0 8 0V5a4 4 0 0 0-4-4Zm-2 14.93V18H8v2h8v-2h-2v-2.07A8 8 0 0 0 20 11h-2a6 6 0 0 1-12 0H4a8 8 0 0 0 6 7.93Z"/></svg></button><button class="cb-btn" id="cb-send" title="Send"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"/></svg></button></div></div>';
+  _wrap.innerHTML = '<button id="cb-launcher" aria-label="Open chat" title="Chat with Niveditha\'s AI"><svg class="ico-chat" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.047 21.34a.75.75 0 0 0 .955.955l4.172-1.391A9.96 9.96 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2Z"/></svg><svg class="ico-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12" stroke="#fff" stroke-width="2.5" stroke-linecap="round" fill="none"/></svg></button><div id="cb-window" role="dialog" aria-label="Chat with Niveditha"><div class="cb-header"><div class="cb-avatar" id="cb-av">N</div><div class="cb-hinfo"><div class="cb-hname">Niveditha Srikanth</div><div class="cb-hstatus"><span class="cb-dot"></span> Talking directly to Nivi</div></div><div class="cb-hbtns"><button class="cb-hbtn" id="cb-clear-btn" title="Close chat">&#10005;</button></div></div><div class="cb-msgs" id="cb-msgs"></div><div class="cb-sugg" id="cb-sugg"></div><div id="cb-img-preview"><img id="cb-img-thumb" src="" alt="Attached image"><span>Click to remove</span></div><div class="cb-bar"><button class="cb-btn" id="cb-attach-btn" title="Attach image"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M21 19V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2ZM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5Z"/></svg></button><input type="file" id="cb-file" accept="image/*" style="display:none"><textarea id="cb-input" rows="1" placeholder="Ask Niveditha anything…"></textarea><button class="cb-btn" id="cb-mic" title="Voice input"><svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M5 10a7 7 0 0 0 14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg></button><button class="cb-btn" id="cb-send" title="Send"><svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M3.478 2.405a.75.75 0 0 0-.926.94l2.432 7.905H13.5a.75.75 0 0 1 0 1.5H4.984l-2.432 7.905a.75.75 0 0 0 .926.94 60.519 60.519 0 0 0 18.445-8.986.75.75 0 0 0 0-1.218A60.517 60.517 0 0 0 3.478 2.405Z"/></svg></button></div></div>';
   document.body.appendChild(_wrap);
 
   /* ── CONFIG ─────────────────────────────────────────────────────────────── */
@@ -179,7 +179,6 @@
   const preview    = document.getElementById('cb-img-preview');
   const imgThumb   = document.getElementById('cb-img-thumb');
   const clearBtn   = document.getElementById('cb-clear-btn');
-  const refreshBtn = document.getElementById('cb-refresh-btn');
 
   /* ── OPEN / CLOSE ───────────────────────────────────────────────────────── */
   let isOpen = false;
@@ -337,45 +336,48 @@
   function startListening() { listening = true; micBtn.classList.add('listening'); micBtn.title = 'Tap to stop'; }
   function stopListening()  { listening = false; micBtn.classList.remove('listening'); micBtn.title = 'Voice input'; }
 
-  /* ── VOICE OUTPUT ───────────────────────────────────────────────────────── */
-  async function speak(btn) {
+  /* ── VOICE OUTPUT (browser TTS) ────────────────────────────────────────── */
+  function speak(btn) {
     var text = btn.dataset.text;
-    if (!text) return;
-    if (currentAudio) { currentAudio.pause(); currentAudio = null; }
+    if (!text || !window.speechSynthesis) return;
+
     if (btn.classList.contains('playing')) {
+      window.speechSynthesis.cancel();
       btn.classList.remove('playing');
       btn.innerHTML = '&#9654; Listen';
       return;
     }
+
     document.querySelectorAll('.cb-speak-btn.playing').forEach(function(b) {
       b.classList.remove('playing'); b.innerHTML = '&#9654; Listen';
     });
-    btn.innerHTML = '&#8987; Generating…';
-    btn.disabled = true;
-    try {
-      var res = await fetch(API + '/speak', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: text }),
-      });
-      if (!res.ok) throw new Error('TTS error');
-      var blob = await res.blob();
-      var url  = URL.createObjectURL(blob);
-      var audio = new Audio(url);
-      currentAudio = audio;
-      btn.classList.add('playing');
-      btn.innerHTML = '&#9646;&#9646; Playing…';
-      btn.disabled = false;
-      audio.play();
-      audio.onended = function() {
-        btn.classList.remove('playing');
-        btn.innerHTML = '&#9654; Listen';
-        URL.revokeObjectURL(url);
-        currentAudio = null;
-      };
-    } catch (e) {
+    window.speechSynthesis.cancel();
+
+    var utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'en-US';
+    utter.rate = 0.88;
+    utter.pitch = 1.05;
+
+    var voices = window.speechSynthesis.getVoices();
+    var preferred = voices.find(function(v) {
+      return v.name.includes('Samantha') || v.name.includes('Karen') ||
+             (v.lang === 'en-US' && v.name.toLowerCase().includes('female'));
+    }) || voices.find(function(v) { return v.lang === 'en-US'; });
+    if (preferred) utter.voice = preferred;
+
+    btn.classList.add('playing');
+    btn.innerHTML = '&#9646;&#9646; Speaking…';
+
+    utter.onend = function() {
+      btn.classList.remove('playing');
       btn.innerHTML = '&#9654; Listen';
-      btn.disabled = false;
-    }
+    };
+    utter.onerror = function() {
+      btn.classList.remove('playing');
+      btn.innerHTML = '&#9654; Listen';
+    };
+
+    window.speechSynthesis.speak(utter);
   }
 
   /* ── IMAGE UPLOAD ───────────────────────────────────────────────────────── */
@@ -397,15 +399,6 @@
   function clearImage() { pendingImage = null; preview.style.display = 'none'; imgThumb.src = ''; }
 
   /* ── CLEAR & REFRESH ────────────────────────────────────────────────────── */
-  clearBtn.addEventListener('click', function() {
-    msgs.innerHTML = ''; sugg.innerHTML = ''; history = []; clearImage();
-    addBot(GREETING, CHIPS_0);
-  });
-  refreshBtn.addEventListener('click', async function() {
-    refreshBtn.textContent = '…';
-    try { await fetch(API + '/refresh', { method: 'POST' }); refreshBtn.textContent = '✓'; }
-    catch (e) { refreshBtn.textContent = '✕'; }
-    setTimeout(function() { refreshBtn.textContent = '↺'; }, 2000);
-  });
+  clearBtn.addEventListener('click', function() { toggle(); });
 
 })();
