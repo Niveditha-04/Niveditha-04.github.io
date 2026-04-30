@@ -19,12 +19,12 @@
     var imgs=['images/favicon-1.png','images/favicon-2.png','images/favicon-3.png',
               'images/favicon-4.png','images/favicon-5.png','images/favicon-6.png',
               'images/favicon-7.png'];
-    var canvas=document.createElement('canvas'); canvas.width=128; canvas.height=128;
+    var canvas=document.createElement('canvas'); canvas.width=156; canvas.height=156;
     var ctx=canvas.getContext('2d');
     var link=document.getElementById('fav');
     var loaded=[],fi=0,done=0;
     function tick(){
-      ctx.clearRect(0,0,128,128);
+      ctx.clearRect(0,0,156,156);
       ctx.save();
       ctx.beginPath();
       ctx.arc(64,64,64,0,Math.PI*2);
