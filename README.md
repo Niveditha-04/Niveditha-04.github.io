@@ -2,8 +2,6 @@
 
 **Live site:** https://niveditha-04.github.io
 
-Data Scientist and AI Engineer with a background in biotechnology, machine learning, and healthcare AI research. This portfolio covers my projects, publications, work experience, skills, and research work.
-
 ---
 
 ## AI Chatbot
@@ -14,16 +12,16 @@ You can find the chatbot by clicking the purple button at the bottom right corne
 
 ### What you can do
 
-- Ask anything about me in plain English
+- Ask anything about me 
 - Send an image and ask a question about it
 - Click the Listen button on any reply to hear it read out loud
 - Use the mic button to speak your question instead of typing
 
 ### Things to know before you use it
 
-**First reply takes longer:** The chatbot runs on Render's free hosting. If no one has used it in the last 15 minutes, it goes to sleep. Your very first message may take 50 seconds to 1 minute to get a reply. After that, all replies come back instantly.
+**First reply takes longer:** The chatbot runs on Render's free hosting. If no one has used it in the last 15 minutes, it goes to sleep. Your very first message may take 50 seconds to 1 minute to get a reply. After that, all replies come back instantly
 
-**Daily usage limit:** The chatbot uses the Groq API which has a free daily token limit. Each reply uses roughly 300 to 500 tokens. The daily limit covers around 150 to 200 exchanges on a normal day. If the limit is reached, the chatbot will let you know and suggest reaching out by email instead.
+**Daily usage limit:** The chatbot uses the Groq API which has a free daily token limit. Each reply uses roughly 300 to 500 tokens. The daily limit covers around 150 to 200 exchanges on a normal day. If the limit is reached, the chatbot will let you know and suggest reaching out by email instead
 
 ---
 
@@ -71,4 +69,4 @@ If you want to run this for your own portfolio, you will need a free Groq API ke
 
 ## Contact
 
-You can reach me through the contact form on the portfolio or connect with me on LinkedIn. The chatbot is also a good way to learn more about my work quickly.
+You can reach me through the email on the portfolio or connect with me on LinkedIn. The chatbot is also a good way to learn more about my work quickly
