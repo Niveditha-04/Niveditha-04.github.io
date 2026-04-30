@@ -29,7 +29,7 @@
       ctx.beginPath();
       ctx.arc(64,64,64,0,Math.PI*2);
       ctx.clip();
-      ctx.drawImage(loaded[fi],-48,-48,224,224);
+      ctx.drawImage(loaded[fi],-16,-16,160,160);
       ctx.restore();
       link.href=canvas.toDataURL('image/png');
       fi=(fi+1)%loaded.length;
