@@ -2,8 +2,8 @@ import os
 import re
 from collections import Counter
 
-GROQ_MODEL   = "llama-3.3-70b-versatile"
-VISION_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
+GROQ_MODEL   = "openai/gpt-oss-120b"
+VISION_MODEL = "qwen/qwen3.6-27b"
 
 _chunks: list[dict] = []
 _groq = None
@@ -118,6 +118,11 @@ def chat(question: str, history: list, name: str,
     else:
         messages.append({"role": "user", "content": user_text})
         model = GROQ_MODEL
+    extra_params = {}
+    if model == VISION_MODEL:
+        # qwen3.6-27b defaults to reasoning_format="raw", which embeds
+        # <think> tags directly in content. Hide it so replies stay clean.
+        extra_params["reasoning_format"] = "hidden"
 
     try:
         resp = get_groq().chat.completions.create(
@@ -125,6 +130,7 @@ def chat(question: str, history: list, name: str,
             messages    = messages,
             max_tokens  = 400,
             temperature = 0.72,
+            **extra_params,
         )
         return resp.choices[0].message.content.strip()
     except Exception as e:
