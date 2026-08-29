@@ -482,14 +482,15 @@
             <i class="fa-solid fa-layer-group"></i> Filter by Domain <i class="fa-solid fa-chevron-down" id="proj-chevron"></i>
           </button>
           <div class="proj-domain-dropdown" id="proj-domain-dropdown">
-            <button class="proj-filter active" data-filter="all" type="button">All (16)</button>
-            <button class="proj-filter" data-filter="healthcare" type="button">Healthcare &amp; Clinical ML (4)</button>
-            <button class="proj-filter" data-filter="bioinformatics" type="button">Bioinformatics (1)</button>
-            <button class="proj-filter" data-filter="cloud" type="button">Cloud &amp; Data Engineering (2)</button>
+            <button class="proj-filter active" data-filter="all" type="button">All (18)</button>
+            <button class="proj-filter" data-filter="agents" type="button">AI Agents &amp; LLM Systems (2)</button>
             <button class="proj-filter" data-filter="nlp" type="button">NLP &amp; AI (2)</button>
-            <button class="proj-filter" data-filter="marketing" type="button">Marketing &amp; Analytics (2)</button>
-            <button class="proj-filter" data-filter="fullstack" type="button">Full-Stack &amp; Systems (3)</button>
+            <button class="proj-filter" data-filter="healthcare" type="button">Healthcare &amp; Clinical ML (4)</button>
+            <button class="proj-filter" data-filter="cloud" type="button">Cloud &amp; Data Engineering (2)</button>
             <button class="proj-filter" data-filter="vision" type="button">Computer Vision (2)</button>
+            <button class="proj-filter" data-filter="marketing" type="button">Marketing &amp; Analytics (2)</button>
+            <button class="proj-filter" data-filter="bioinformatics" type="button">Bioinformatics (1)</button>
+            <button class="proj-filter" data-filter="fullstack" type="button">Full-Stack &amp; Systems (3)</button>
           </div>
         </div>
       </div>
@@ -967,6 +968,66 @@
           </div>
           <div class="pc-footer">
             <a href="https://github.com/Niveditha-04/IIT-Job-Scheduler-G2406-T1" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+        <!-- 17. FraudGraph -->
+        <div class="project-card-ac anim" data-domain="agents" data-batch="1">
+          <div class="pc-image-wrap pc-img-fraudgraph">
+            <img src="images/project-fraudgraph.jpg" alt="FraudGraph" class="pc-image" onerror="this.style.display='none'">
+          </div>
+          <div class="pc-body">
+            <div class="pc-title">FraudGraph: GNN Fraud Detection with an LLM Investigation Agent</div>
+            <div class="pc-desc">Two-layer fraud detection system on the Elliptic Bitcoin transaction graph, pairing a GraphSAGE and GAT model that flags suspicious wallet neighborhoods with a LangGraph-based three-persona LLM panel that investigates each flagged case and routes disagreements to human review instead of guessing.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">PyTorch Geometric</span>
+              <span class="pc-tag">GraphSAGE / GAT</span>
+              <span class="pc-tag pc-tag-hidden">LangGraph</span>
+              <span class="pc-tag pc-tag-hidden">RAG (Chroma)</span>
+              <span class="pc-tag pc-tag-hidden">FastAPI</span>
+              <span class="pc-tag pc-tag-hidden">Pyvis</span>
+              <button class="pc-tag pc-tag-more" type="button">+4</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>0.542 AUC-PR on 203K+ node transaction graph (~2.5x non-graph baseline)</li>
+              <li>Scaled to 822K+ wallet nodes on Elliptic++</li>
+              <li>3-persona panel sent 6 of 10 test cases to human review on disagreement</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Fraudgraph" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
+          </div>
+        </div>
+
+       <!-- 18. Multimodal Ad Quality Scorer -->
+       <div class="project-card-ac anim" data-domain="agents" data-batch="1">
+         <div class="pc-image-wrap pc-img-adscorer">
+           <img src="images/project-adscorer.jpg" alt="Ad Quality Scorer" class="pc-image"onerror="this.style.display='none'">
+        </div>
+          <div class="pc-body">
+            <div class="pc-title">Multimodal Ad Quality and Policy Violation Scorer</div>
+            <div class="pc-desc">Scores pet-product ad creatives, image and text pairs, for policy violations and quality issues using frozen CLIP embeddings, a trained classifier head, a SQL-backed data layer, and a RAG-grounded LLM explanation layer, benchmarked against a rule-based baseline in an offline A/B comparison.</div>
+            <div class="pc-tags">
+              <span class="pc-tag">Python</span>
+              <span class="pc-tag">PyTorch</span>
+              <span class="pc-tag">CLIP</span>
+              <span class="pc-tag pc-tag-hidden">FastAPI</span>
+              <span class="pc-tag pc-tag-hidden">SQLAlchemy</span>
+              <span class="pc-tag pc-tag-hidden">ChromaDB</span>
+              <span class="pc-tag pc-tag-hidden">scikit-learn</span>
+              <span class="pc-tag pc-tag-hidden">Anthropic API</span>
+              <span class="pc-tag pc-tag-hidden">MCP</span>
+              <button class="pc-tag pc-tag-more" type="button">+6</button>
+            </div>
+            <ul class="pc-metrics">
+              <li>89.6% joint-model accuracy vs 68.8% text-only, 36.5% image-only</li>
+              <li>Beat rule-based baseline by 14.6 accuracy points (McNemar's p = 0.008)</li>
+              <li>480 ad creatives scored across 4 policy categories with grounded explanations</li>
+            </ul>
+          </div>
+          <div class="pc-footer">
+            <a href="https://github.com/Niveditha-04/Multimodal-Ad-quality-scorer" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </div>
 
