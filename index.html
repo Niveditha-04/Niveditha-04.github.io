@@ -978,7 +978,7 @@
           </div>
           <div class="pc-body">
             <div class="pc-title">FraudGraph: GNN Fraud Detection with an LLM Investigation Agent</div>
-            <div class="pc-desc">Two-layer fraud detection system on the Elliptic Bitcoin transaction graph, pairing a GraphSAGE and GAT model that flags suspicious wallet neighborhoods with a LangGraph-based three-persona LLM panel that investigates each flagged case and routes disagreements to human review instead of guessing.</div>
+            <div class="pc-desc">Two-layer fraud detection system on the Elliptic Bitcoin transaction graph, pairing a GraphSAGE and GAT model that flags suspicious wallet neighborhoods with a LangGraph-based 3-persona LLM panel that investigates each flagged case and routes disagreements to human review instead of guessing.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">PyTorch Geometric</span>
@@ -990,9 +990,9 @@
               <button class="pc-tag pc-tag-more" type="button">+4</button>
             </div>
             <ul class="pc-metrics">
-              <li>0.542 AUC-PR on 203K+ node transaction graph (~2.5x non-graph baseline)</li>
-              <li>Scaled to 822K+ wallet nodes on Elliptic++</li>
-              <li>3-persona panel sent 6 of 10 test cases to human review on disagreement</li>
+              <li>0.542 AUC-PR (GraphSAGE, temporal split)</li>
+              <li>822K+ wallet nodes at scale (Elliptic++)</li>
+              <li>6/10 flagged cases routed to human review</li>
             </ul>
           </div>
           <div class="pc-footer">
@@ -1007,7 +1007,7 @@
         </div>
           <div class="pc-body">
             <div class="pc-title">Multimodal Ad Quality and Policy Violation Scorer</div>
-            <div class="pc-desc">Scores pet-product ad creatives, image and text pairs, for policy violations and quality issues using frozen CLIP embeddings, a trained classifier head, a SQL-backed data layer, and a RAG-grounded LLM explanation layer, benchmarked against a rule-based baseline in an offline A/B comparison.</div>
+            <div class="pc-desc">Scores pet-product ad creatives, image and text pairs, for policy violations and quality issues across 480 ads and 4 categories, using frozen CLIP embeddings, a trained classifier head, a SQL-backed data layer, and a RAG-grounded LLM explanation layer, benchmarked against a rule-based baseline in an offline A/B comparison.</div>
             <div class="pc-tags">
               <span class="pc-tag">Python</span>
               <span class="pc-tag">PyTorch</span>
@@ -1021,9 +1021,9 @@
               <button class="pc-tag pc-tag-more" type="button">+6</button>
             </div>
             <ul class="pc-metrics">
-              <li>89.6% joint-model accuracy vs 68.8% text-only, 36.5% image-only</li>
-              <li>Beat rule-based baseline by 14.6 accuracy points (McNemar's p = 0.008)</li>
-              <li>480 ad creatives scored across 4 policy categories with grounded explanations</li>
+              <li>89.6% joint model accuracy</li>
+              <li>+14.6 pts over rule-based baseline</li>
+              <li>0.792 recall on image+text-only category</li>
             </ul>
           </div>
           <div class="pc-footer">
