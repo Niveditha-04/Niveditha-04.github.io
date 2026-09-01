@@ -1031,15 +1031,17 @@
           </div>
         </div>
 
-      <!-- 19. Smart PDF Quality & Security Tester -->
-       <div class="project-card-ac anim" data-domain="agents" data-batch="1">
-         <div class="pc-image-wrap pc-img-adscorer">
-           <img src="images/project-pdftester.jpg" alt="Smart PDF Quality and Security Tester" class="pc-image" onerror="this.style.display='none'">
-        </div>
+
+        <!-- 19. Smart PDF Quality & Security Tester -->
+        <div class="project-card-ac anim" data-domain="agents" data-batch="1">
+          <div class="pc-image-wrap pc-img-fraudgraph">
+            <img src="images/project-pdftester.jpg" alt="Smart PDF Quality and Security Tester" class="pc-image" onerror="this.style.display='none'">
+         </div>
           <div class="pc-body">
             <div class="pc-title">Smart PDF Quality and Security Tester</div>
             <div class="pc-desc">Multi-language system that scans PDF files for structural corruption, extraction quality, and security risks (embedded JS, attachments, insecure links, encryption) without a human opening the file. A C++ parser walks the raw object graph for broken/circular references, a Python scanner flags security risks, a Java/Spring Boot backend guards against duplicate scan jobs and caches results, and a REST API stores uploads in S3 and queues jobs via SQS, all running on real Postgres, Redis, and LocalStack through Docker Compose. A Qt desktop client submits files and polls for results, and a Claude API-backed module explains individual findings in plain language grounded in a small reference set.</div>
-              <span class="pc-tag">C++17</span>
+            <div class="pc-tags">
+             <span class="pc-tag">C++17</span>
               <span class="pc-tag">Python</span>
               <span class="pc-tag">Java / Spring Boot</span>
               <span class="pc-tag pc-tag-hidden">PostgreSQL</span>
@@ -1056,13 +1058,11 @@
               <li>3 containerized services (Postgres, Redis, LocalStack S3/SQS) — all health-checked</li>
               <li>Automated tests across C++, Python &amp; Java layers via Testcontainers</li>
             </ul>
-            </ul>
           </div>
           <div class="pc-footer">
             <a href="https://github.com/Niveditha-04/Smart-PDF-Quality-Security-Tester" target="_blank" class="pc-btn-code"><i class="fa-brands fa-github"></i> Code</a>
           </div>
         </div>
-
 
       </div>
 
